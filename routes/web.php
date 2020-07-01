@@ -42,3 +42,6 @@ Route::resource('purchase', 'PurchaseController');
 
 //Employee
 Route::resource('employee', 'EmployeeController');
+
+//Customer
+Route::resource('customer', 'CustomerController');
