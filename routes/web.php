@@ -36,3 +36,6 @@ Route::resource('product', 'ProductController');
 
 //Vendor
 Route::resource('vendor', 'VendorController');
+
+//Purchase
+Route::resource('purchase', 'PurchaseController');
