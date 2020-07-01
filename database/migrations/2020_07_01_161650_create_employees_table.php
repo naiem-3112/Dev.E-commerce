@@ -25,7 +25,7 @@ class CreateEmployeesTable extends Migration
             $table->text('address');
             $table->integer('salary');
             $table->string('emp_dob');
-            $table->boolean('status');
+            $table->boolean('status')->default('1');
             $table->timestamps();
         });
     }

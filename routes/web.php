@@ -48,3 +48,6 @@ Route::resource('customer', 'CustomerController');
 
 //Order
 Route::resource('order', 'OrderController');
+
+//Sale
+Route::resource('sale', 'SaleController');

@@ -22,7 +22,7 @@ class CreatePurchasesTable extends Migration
             $table->timestamp('purchase_date');
             $table->integer('advance');
             $table->integer('total');
-            $table->integer('balance');
+            $table->integer('balance')->default('1');
             $table->timestamps();
         });
     }

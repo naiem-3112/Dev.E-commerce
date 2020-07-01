@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('quantity');
             $table->integer('price');
-            $table->boolean('status');
+            $table->boolean('status')->default('1');
             $table->timestamps();
         });
     }

@@ -21,7 +21,7 @@ class CreateCustomersTable extends Migration
             $table->string('password');
             $table->text('address');
             $table->string('contact');
-            $table->boolean('status');
+            $table->boolean('status')->default('1');
             $table->timestamps();
         });
     }
