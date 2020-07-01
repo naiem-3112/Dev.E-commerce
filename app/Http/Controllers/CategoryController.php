@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view('category.index');
+        return view('admin.category.index');
     }
 
     public function create()
