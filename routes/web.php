@@ -27,3 +27,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Category
 Route::resource('category', 'CategoryController');
+
+//Brand
+Route::resource('brand', 'BrandController');
