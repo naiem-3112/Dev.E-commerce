@@ -30,3 +30,6 @@ Route::resource('category', 'CategoryController');
 
 //Brand
 Route::resource('brand', 'BrandController');
+
+//Product
+Route::resource('product', 'ProductController');
