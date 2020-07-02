@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Session;
 
 class BrandController extends Controller
 {
