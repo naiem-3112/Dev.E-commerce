@@ -11,7 +11,8 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bbootstrap 4 -->
-    <link rel="stylesheet" href="{{asset('admin_template/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+    <link rel="stylesheet"
+          href="{{asset('admin_template/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <!-- iCheck -->
     <link rel="stylesheet" href="{{asset('admin_template/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- JQVMap -->
@@ -27,8 +28,10 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-{{--    bootstrap 5 cdn--}}
+    {{--    bootstrap 5 cdn--}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+{{--    toastr--}}
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     @stack('base.css')
 </head>
 
@@ -59,7 +62,8 @@
 <script src="{{asset('admin_template/plugins/moment/moment.min.js')}}"></script>
 <script src="{{asset('admin_template/plugins/daterangepicker/daterangepicker.js')}}"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="{{asset('admin_template/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+<script
+    src="{{asset('admin_template/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 <!-- Summernote -->
 <script src="{{asset('admin_template/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- overlayScrollbars -->
@@ -71,6 +75,21 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('admin_template/dist/js/demo.js')}}"></script>
 
+{{--toastr--}}
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<script>
+    @if(Session::has('success'))
+    toastr.success("{{ Session::get('success') }}")
+
+    @elseif(Session::has('error'))
+    toastr.error("{{ Session::get('error') }}")
+
+    @endif
+    //bs-custom-file-input
+    $(document).ready(function () {
+        bsCustomFileInput.init()
+    })
+</script>
 @stack('base.js')
 </body>
 </html>

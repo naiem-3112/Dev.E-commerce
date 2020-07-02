@@ -6,37 +6,41 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin/dashboard', function(){
-   return view('admin.dashboard');
-})->name('admin.dashboard');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Admin Routes
+Route::prefix('admin')->middleware('auth')->group(function () {
+//Admin Dashboard
+    Route::get('dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
 //Category
-Route::resource('category', 'CategoryController');
+    Route::resource('category', 'CategoryController');
 
 //Brand
-Route::resource('brand', 'BrandController');
+    Route::resource('brand', 'BrandController');
 
 //Product
-Route::resource('product', 'ProductController');
+    Route::resource('product', 'ProductController');
 
 //Vendor
-Route::resource('vendor', 'VendorController');
+    Route::resource('vendor', 'VendorController');
 
 //Purchase
-Route::resource('purchase', 'PurchaseController');
+    Route::resource('purchase', 'PurchaseController');
 
 //Employee
-Route::resource('employee', 'EmployeeController');
+    Route::resource('employee', 'EmployeeController');
 
 //Customer
-Route::resource('customer', 'CustomerController');
+    Route::resource('customer', 'CustomerController');
 
 //Order
-Route::resource('order', 'OrderController');
+    Route::resource('order', 'OrderController');
 
 //Sale
-Route::resource('sale', 'SaleController');
+    Route::resource('sale', 'SaleController');
+});
+
