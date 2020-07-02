@@ -6,12 +6,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Admin Routes
-Route::prefix('admin')->middleware('auth')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 //Admin Dashboard
     Route::get('dashboard', function () {
         return view('admin.dashboard');
