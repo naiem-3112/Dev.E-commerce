@@ -195,15 +195,20 @@
                         </li>
                     </ul>
                 </li>
+                <hr>
+                <li class="nav-item bg-danger">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                       class="nav-link">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>
+                            Logout
+                        </p>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </a>
+                </li>
             </ul>
-            <li class="nav-item">
-                <a href="{{ route('logout') }}" class="nav-link">
-                    <i class="nav-icon fas fa-copy"></i>
-                    <p>
-                        Logout
-                    </p>
-                </a>
-            </li>
         </nav>
         <!-- /.sidebar-menu -->
     </div>
