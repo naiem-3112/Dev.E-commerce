@@ -74,7 +74,8 @@
                                         <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                         @enderror
                                         <div>
-                                            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-md btn-primary">Submit</button>
+                                            <a href="{{ route('category.index') }}" class="btn btn-md btn-info">Back</a>
                                         </div>
                                     </div>
                                 </form>

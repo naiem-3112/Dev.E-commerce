@@ -53,16 +53,41 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit', compact('category'));
     }
 
     public function update(Request $request, Category $category)
     {
-        //
+        $this->validate($request, [
+            'name' => "required|unique:categories,name,$category->id",
+        ]);
+
+        $category->name = $request->name;
+        $category->slug = Str::slug($request->name, '-');
+        $category->description = $request->description;
+        $category->status = $request->status;
+
+        if ($request->hasFile('image')) {
+            $image = $request->image;
+            $uniqueImageName = time() . '.' . $image->extension();
+            $image->move(public_path('images/category'), $uniqueImageName);
+            $category->image = $uniqueImageName;
+        }
+        $category->save();
+
+        Session::flash('success', 'category updated successfully');
+
+        return redirect()->route('category.index');
     }
 
     public function destroy(Category $category)
     {
-        //
+        if ($category) {
+            $category->delete();
+
+            Session::flash('success', 'category deleted successfully');
+
+            return redirect()->route('category.index');
+        }
     }
 }

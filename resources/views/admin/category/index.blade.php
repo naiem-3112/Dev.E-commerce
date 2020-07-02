@@ -30,13 +30,16 @@
                             </div>
                         </div>
                         <div class="card-body p-0">
-                            <table class="table table-striped table-bordered table-hover">
+                            <table style="text-align: center" class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Category Name</th>
-                                    <th scope="col">Slug</th>
-                                    <th scope="col">Image</th>
+                                    <th>ID</th>
+                                    <th>Category Name</th>
+                                    <th>Slug</th>
+                                    <th>Description</th>
+                                    <th>Image</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -46,26 +49,30 @@
                                             <th scope="row">{{ $category->id }}</th>
                                             <td>{{ $category->name }}</td>
                                             <td>{{ $category->slug  }}</td>
+                                            <td>{{ $category->description }}</td>
                                             <td>
-                                                <div>
-                                                    <img src="{{ asset('images/category/'. $category->image) }}"
-                                                         alt="category">
+                                                <div style="margin: 0 auto; width: 60px; overflow: hidden">
+                                                    <img class="img-fluid" src="{{ asset('images/category/'. $category->image) }}"
+                                                         alt="catImg">
                                                 </div>
                                             </td>
                                             <td>
-                                                @if($category->status == 1) <span class="badge badge-info"></span>@else
-                                                    <span class="badge badge-danger"></span> @endif
+                                                @if($category->status == 1) <span class="badge badge-success">Active</span>@else
+                                                    <span class="badge badge-danger">Inactive</span> @endif
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-primary" href="{{ route('category.edit', $category->id) }}"><i class="fa fa-pen"></i></a>
-                                                <a class="btn btn-sm btn-primary" href="{{ route('category.view', $category->id) }}"><i class="fa fa-eye"></i></a>
-                                                <a class="btn btn-sm btn-primary" href="{{ route('category.delete', $category->id) }}"><i class="fa fa-trash"></i></a>
+                                                <a class="btn btn-sm btn-warning btn-xs" href="{{ route('category.edit', $category->id) }}"><i class="fas fa-pen-square"></i></a>
+                                                <form action="{{ route('category.destroy', $category->id) }}" method="post" style="display: inline-block">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button onclick="alert('Are You Sure to DELETE!')" class="btn btn-sm btn-danger btn-xs"><i class="fas fa-trash"></i></button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="6" style="text-align: center; color: grey">No category found</td>
+                                        <td colspan="7" style="text-align: center; color: grey">No category found</td>
                                     </tr>
                                 @endif
                                 </tbody>
