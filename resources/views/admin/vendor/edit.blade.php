@@ -47,35 +47,37 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-8">
-                                                    <label for="image">Image</label>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" name="image" id="image">
-                                                        <label class="custom-file-label" for="image">Choose file</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-4">
-                                                    <div style="margin: 0 auto; width: 100px; overflow: hidden">
-                                                        <img src="{{ asset('images/vendor/'. $vendor->image) }}" class="img-fluid" alt="CatImg">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @error('image')
+                                            <label for="email">Vendor Email</label>
+                                            <input type="email" class="form-control" name="email" id="email" value="{{ $vendor->email }}">
+                                            @error('email')
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="description">Description</label>
-                                            <textarea name="description" id="description" rows="4" class="form-control">{{ $vendor->description }}</textarea>
-                                            @error('description')
+                                            <label for="vendor_address">Vendor Address</label>
+                                            <textarea name="vendor_address" id="vendor_address" rows="4" class="form-control">{{ $vendor->vendor_address }}</textarea>
+                                            @error('vendor_address')
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="price">Price</label>
-                                            <input type="number" name="price" id="price" class="form-control" value="{{ $vendor->price }}">
-                                            @error('price')
+                                            <label for="company_name">Company Name</label>
+                                            <input type="text" class="form-control" name="company_name" id="company_name" value="{{ $vendor->company_name }}">
+                                            @error('company_name')
+                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="company_address">Company Address</label>
+                                            <textarea name="company_address" id="company_address" rows="4" class="form-control">{{ $vendor->company_address }}</textarea>
+                                            @error('company_address')
+                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="contact">Contact</label>
+                                            <input type="text" class="form-control" name="contact" id="contact" value="{{ $vendor->contact }}">
+                                            @error('contact')
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
                                         </div>

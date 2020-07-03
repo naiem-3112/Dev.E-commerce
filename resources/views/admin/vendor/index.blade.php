@@ -36,9 +36,11 @@
                                     <th>ID</th>
                                     <th>Vendor Name</th>
                                     <th>Slug</th>
-                                    <th>Description</th>
-                                    <th>Price <small>(Tk)</small></th>
-                                    <th>Image</th>
+                                    <th>Email</th>
+                                    <th>Vendor Address</th>
+                                    <th>Company Name</th>
+                                    <th>Company Address</th>
+                                    <th>contact</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -50,14 +52,12 @@
                                             <th scope="row">{{ $vendor->id }}</th>
                                             <td>{{ $vendor->name }}</td>
                                             <td>{{ $vendor->slug  }}</td>
-                                            <td>{{ $vendor->description }}</td>
-                                            <td>{{ $vendor->price }}/=</td>
-                                            <td>
-                                                <div style="margin: 0 auto; width: 60px; overflow: hidden">
-                                                    <img class="img-fluid" src="{{ asset('images/vendor/'. $vendor->image) }}"
-                                                         alt="catImg">
-                                                </div>
-                                            </td>
+                                            <td>{{ $vendor->email }}</td>
+                                            <td>{{ $vendor->vendor_address }}</td>
+                                            <td>{{ $vendor->company_name }}</td>
+                                            <td>{{ $vendor->company_address }}</td>
+                                            <td>{{ $vendor->contact }}</td>
+
                                             <td>
                                                 @if($vendor->status == 1) <span class="badge badge-success">Active</span>@else
                                                     <span class="badge badge-danger">Inactive</span> @endif
