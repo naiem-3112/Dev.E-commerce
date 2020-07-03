@@ -4,82 +4,90 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Session;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $products = Product::orderBy('created_at', 'DESC')->paginate(20);
+        return view('admin.product.index', compact('products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('admin.product.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|unique:products,name',
+        ]);
+
+        $product = new Product();
+
+        $product->name = $request->name;
+        $product->slug = Str::slug($request->name, '-');
+        $product->description = $request->description;
+        $product->status = $request->status;
+
+        if ($request->hasFile('image')) {
+            $image = $request->image;
+            $uniqueImageName = time() . '.' . $image->extension();
+            $image->move(public_path('images/product'), $uniqueImageName);
+            $product->image = $uniqueImageName;
+        }
+        $product->save();
+
+        Session::flash('success', 'product created successfully');
+
+        return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function show(Product $product)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Product $product)
     {
-        //
+        return view('admin.product.edit', compact('product'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Product $product)
     {
-        //
+        $this->validate($request, [
+            'name' => "required|unique:products,name,$product->id",
+        ]);
+
+        $product->name = $request->name;
+        $product->slug = Str::slug($request->name, '-');
+        $product->description = $request->description;
+        $product->status = $request->status;
+
+        if ($request->hasFile('image')) {
+            $image = $request->image;
+            $uniqueImageName = time() . '.' . $image->extension();
+            $image->move(public_path('images/product'), $uniqueImageName);
+            $product->image = $uniqueImageName;
+        }
+        $product->save();
+
+        Session::flash('success', 'product updated successfully');
+
+        return redirect()->route('product.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Product $product)
     {
-        //
+        if ($product) {
+            $product->delete();
+
+            Session::flash('success', 'product deleted successfully');
+
+            return redirect()->route('product.index');
+        }
     }
 }
