@@ -24,7 +24,11 @@ class VendorController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|unique:vendors,name',
-            'description' => 'required',
+            'email' => 'required|email',
+            'vendor_address' => 'required',
+            'company_name' => 'required',
+            'company_address' => 'required',
+            'contact' => 'required',
             'status' => 'required',
         ]);
 
@@ -32,16 +36,12 @@ class VendorController extends Controller
 
         $vendor->name = $request->name;
         $vendor->slug = Str::slug($request->name, '-');
-        $vendor->description = $request->description;
+        $vendor->email = $request->email;
+        $vendor->vendor_address = $request->vendor_address;
+        $vendor->company_name = $request->company_name;
+        $vendor->company_address = $request->company_address;
+        $vendor->contact = $request->contact;
         $vendor->status = $request->status;
-        $vendor->price = $request->price;
-
-        if ($request->hasFile('image')) {
-            $image = $request->image;
-            $uniqueImageName = time() . '.' . $image->extension();
-            $image->move(public_path('images/vendor'), $uniqueImageName);
-            $vendor->image = $uniqueImageName;
-        }
         $vendor->save();
 
         Session::flash('success', 'vendor created successfully');
@@ -63,23 +63,22 @@ class VendorController extends Controller
     {
         $this->validate($request, [
             'name' => "required|unique:vendors,name,$vendor->id",
-            'description' => 'required',
+            'email' => 'required|email',
+            'vendor_address' => 'required',
+            'company_name' => 'required',
+            'company_address' => 'required',
+            'contact' => 'required',
             'status' => 'required',
-            'price' => 'required'
         ]);
 
         $vendor->name = $request->name;
         $vendor->slug = Str::slug($request->name, '-');
-        $vendor->description = $request->description;
+        $vendor->email = $request->email;
+        $vendor->vendor_address = $request->vendor_address;
+        $vendor->company_name = $request->company_name;
+        $vendor->company_address = $request->company_address;
+        $vendor->contact = $request->contact;
         $vendor->status = $request->status;
-        $vendor->price = $request->price;
-
-        if ($request->hasFile('image')) {
-            $image = $request->image;
-            $uniqueImageName = time() . '.' . $image->extension();
-            $image->move(public_path('images/vendor'), $uniqueImageName);
-            $vendor->image = $uniqueImageName;
-        }
         $vendor->save();
 
         Session::flash('success', 'vendor updated successfully');

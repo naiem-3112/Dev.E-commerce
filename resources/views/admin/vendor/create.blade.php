@@ -46,26 +46,37 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="image">Image</label>
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" name="image" id="image">
-                                                <label class="custom-file-label" for="image">Choose file</label>
-                                            </div>
-                                            @error('image')
+                                            <label for="name">Vendor Email</label>
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                                            @error('email')
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="description">Description</label>
-                                            <textarea name="description" id="description" rows="4" class="form-control" placeholder="Enter Description"></textarea>
-                                            @error('description')
+                                            <label for="vendor_address">Vendor Address</label>
+                                            <textarea name="vendor_address" id="vendor_address" rows="4" class="form-control" placeholder="Enter Vendor Address"></textarea>
+                                            @error('vendor_address')
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="price">Price</label>
-                                            <input type="number" name="price" id="price" class="form-control" placeholder="Enter Price">
-                                            @error('price')
+                                            <label for="company_name">Company Name</label>
+                                            <input type="text" class="form-control" name="company_name" id="company_name" placeholder="Enter Company Name">
+                                            @error('company_name')
+                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="company_address">Company Address</label>
+                                            <textarea name="company_address" id="company_address" rows="4" class="form-control" placeholder="Enter Company Address"></textarea>
+                                            @error('company_address')
+                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="contact">Contact</label>
+                                            <input type="text" class="form-control" name="contact" id="contact" placeholder="Enter Contact">
+                                            @error('contact')
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
                                         </div>
