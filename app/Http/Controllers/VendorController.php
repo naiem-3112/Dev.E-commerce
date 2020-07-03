@@ -4,82 +4,97 @@ namespace App\Http\Controllers;
 
 use App\Vendor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Session;
 
 class VendorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $vendors = Vendor::orderBy('created_at', 'DESC')->paginate(20);
+        return view('admin.vendor.index', compact('vendors'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('admin.vendor.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|unique:vendors,name',
+            'description' => 'required',
+            'status' => 'required',
+        ]);
+
+        $vendor = new Vendor();
+
+        $vendor->name = $request->name;
+        $vendor->slug = Str::slug($request->name, '-');
+        $vendor->description = $request->description;
+        $vendor->status = $request->status;
+        $vendor->price = $request->price;
+
+        if ($request->hasFile('image')) {
+            $image = $request->image;
+            $uniqueImageName = time() . '.' . $image->extension();
+            $image->move(public_path('images/vendor'), $uniqueImageName);
+            $vendor->image = $uniqueImageName;
+        }
+        $vendor->save();
+
+        Session::flash('success', 'vendor created successfully');
+
+        return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Vendor  $vendor
-     * @return \Illuminate\Http\Response
-     */
     public function show(Vendor $vendor)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Vendor  $vendor
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Vendor $vendor)
     {
-        //
+        return view('admin.vendor.edit', compact('vendor'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Vendor  $vendor
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Vendor $vendor)
     {
-        //
+        $this->validate($request, [
+            'name' => "required|unique:vendors,name,$vendor->id",
+            'description' => 'required',
+            'status' => 'required',
+            'price' => 'required'
+        ]);
+
+        $vendor->name = $request->name;
+        $vendor->slug = Str::slug($request->name, '-');
+        $vendor->description = $request->description;
+        $vendor->status = $request->status;
+        $vendor->price = $request->price;
+
+        if ($request->hasFile('image')) {
+            $image = $request->image;
+            $uniqueImageName = time() . '.' . $image->extension();
+            $image->move(public_path('images/vendor'), $uniqueImageName);
+            $vendor->image = $uniqueImageName;
+        }
+        $vendor->save();
+
+        Session::flash('success', 'vendor updated successfully');
+
+        return redirect()->route('vendor.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Vendor  $vendor
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Vendor $vendor)
     {
-        //
+        if ($vendor) {
+            $vendor->delete();
+
+            Session::flash('success', 'vendor deleted successfully');
+
+            return redirect()->route('vendor.index');
+        }
     }
 }

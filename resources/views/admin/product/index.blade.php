@@ -1,5 +1,5 @@
 @extends('layouts.backend.master')
-@section('base.title', 'Product Product')
+@section('base.title', 'Product List')
 @section('master.content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
