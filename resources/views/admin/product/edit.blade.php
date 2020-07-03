@@ -73,6 +73,13 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
+                                            <label for="price">Price</label>
+                                            <input type="number" name="price" id="price" class="form-control" value="{{ $product->price }}">
+                                            @error('price')
+                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
                                             <label for="status">Status</label>
                                             <select class="form-control" name="status" id="status">
                                                 <option style="display: none" value="{{ $product->status }}" selected>@if($product->status == 1) active @else inactive @endif</option>

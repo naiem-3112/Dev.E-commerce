@@ -24,6 +24,8 @@ class ProductController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|unique:products,name',
+            'description' => 'required',
+            'status' => 'required',
         ]);
 
         $product = new Product();
@@ -32,6 +34,7 @@ class ProductController extends Controller
         $product->slug = Str::slug($request->name, '-');
         $product->description = $request->description;
         $product->status = $request->status;
+        $product->price = $request->price;
 
         if ($request->hasFile('image')) {
             $image = $request->image;
@@ -60,12 +63,16 @@ class ProductController extends Controller
     {
         $this->validate($request, [
             'name' => "required|unique:products,name,$product->id",
+            'description' => 'required',
+            'status' => 'required',
+            'price' => 'required'
         ]);
 
         $product->name = $request->name;
         $product->slug = Str::slug($request->name, '-');
         $product->description = $request->description;
         $product->status = $request->status;
+        $product->price = $request->price;
 
         if ($request->hasFile('image')) {
             $image = $request->image;

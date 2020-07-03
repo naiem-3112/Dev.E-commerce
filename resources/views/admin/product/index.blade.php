@@ -37,6 +37,7 @@
                                     <th>Product Name</th>
                                     <th>Slug</th>
                                     <th>Description</th>
+                                    <th>Price <small>(Tk)</small></th>
                                     <th>Image</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -50,6 +51,7 @@
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->slug  }}</td>
                                             <td>{{ $product->description }}</td>
+                                            <td>{{ $product->price }}/=</td>
                                             <td>
                                                 <div style="margin: 0 auto; width: 60px; overflow: hidden">
                                                     <img class="img-fluid" src="{{ asset('images/product/'. $product->image) }}"
@@ -72,7 +74,7 @@
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="7" style="text-align: center; color: grey">No product found</td>
+                                        <td colspan="8" style="text-align: center; color: grey">No product found</td>
                                     </tr>
                                 @endif
                                 </tbody>
