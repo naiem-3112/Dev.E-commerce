@@ -37,9 +37,7 @@
                                     <th>Vendor Name</th>
                                     <th>Slug</th>
                                     <th>Email</th>
-                                    <th>Vendor Address</th>
                                     <th>Company Name</th>
-                                    <th>Company Address</th>
                                     <th>contact</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -53,11 +51,8 @@
                                             <td>{{ $vendor->name }}</td>
                                             <td>{{ $vendor->slug  }}</td>
                                             <td>{{ $vendor->email }}</td>
-                                            <td>{{ $vendor->vendor_address }}</td>
                                             <td>{{ $vendor->company_name }}</td>
-                                            <td>{{ $vendor->company_address }}</td>
                                             <td>{{ $vendor->contact }}</td>
-
                                             <td>
                                                 @if($vendor->status == 1) <span class="badge badge-success">Active</span>@else
                                                     <span class="badge badge-danger">Inactive</span> @endif
@@ -74,7 +69,7 @@
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="8" style="text-align: center; color: grey">No vendor found</td>
+                                        <td colspan="10" style="text-align: center; color: grey">No vendor found</td>
                                     </tr>
                                 @endif
                                 </tbody>
