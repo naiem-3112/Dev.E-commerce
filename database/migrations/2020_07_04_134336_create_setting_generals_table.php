@@ -20,9 +20,6 @@ class CreateSettingGeneralsTable extends Migration
             $table->string('logo')->nullable();
             $table->string('moto')->nullable();
             $table->string('copyright')->nullable();
-            $table->string('information')->nullable();
-            $table->string('custom_links')->nullable();
-            $table->string('newsletter')->nullable();
             $table->timestamps();
         });
     }

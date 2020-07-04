@@ -1,19 +1,19 @@
 @extends('layouts.backend.master')
-@section('base.title', 'Create Vendor')
+@section('base.title', 'Create General Setting')
 @section('master.content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Create Vendor</h1>
+                    <h1 class="m-0 text-dark">Create General Setting</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('vendor.index') }}">Vendor List</a>
+                        <li class="breadcrumb-item active"><a href="{{ route('general.index') }}">General Setting List</a>
                         </li>
-                        <li class="breadcrumb-item active">Create Vendor</li>
+                        <li class="breadcrumb-item active">Create General Setting</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -28,55 +28,51 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Create Vendor</h3>
-                                <a href="{{ route('vendor.index') }}" class="btn btn-primary">All Vendor</a>
+                                <h3 class="card-title">Create General Setting</h3>
+                                <a href="{{ route('general.index') }}" class="btn btn-primary">All General Setting</a>
                             </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body p-0">
                             <div class="col-12 col-lg-8 offset-lg-2 col-md-8 offset-md-2 ">
-                                <form action="{{ route('vendor.store') }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('general.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label for="name">Vendor Name</label>
-                                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
-                                            @error('name')
+                                            <label for="welcome_msg">Welcome Message</label>
+                                            <input type="text" class="form-control" name="welcome_msg" id="welcome_msg" placeholder="Enter welcome Message">
+                                            @error('welcome_msg')
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="name">Vendor Email</label>
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
-                                            @error('email')
+                                            <label for="logo">Logo</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="logo" id="logo">
+                                                <label class="custom-file-label" for="logo">Choose file</label>
+                                            </div>
+                                            @error('logo')
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="vendor_address">Vendor Address</label>
-                                            <textarea name="vendor_address" id="vendor_address" rows="4" class="form-control" placeholder="Enter Vendor Address"></textarea>
-                                            @error('vendor_address')
+                                            <label for="cell">Cell</label>
+                                            <input type="text" class="form-control" name="cell" id="cell" placeholder="Enter cell">
+                                            @error('cell')
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="company_name">Company Name</label>
-                                            <input type="text" class="form-control" name="company_name" id="company_name" placeholder="Enter Company Name">
-                                            @error('company_name')
+                                            <label for="moto">Website Moto</label>
+                                            <textarea name="moto" id="moto" rows="4" class="form-control" placeholder="Enter Website Moto"></textarea>
+                                            @error('moto')
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="company_address">Company Address</label>
-                                            <textarea name="company_address" id="company_address" rows="4" class="form-control" placeholder="Enter Company Address"></textarea>
-                                            @error('company_address')
-                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="contact">Contact</label>
-                                            <input type="text" class="form-control" name="contact" id="contact" placeholder="Enter Contact">
-                                            @error('contact')
+                                            <label for="copyright">Copyright</label>
+                                            <input type="text" class="form-control" name="copyright" id="copyright" placeholder="Enter Copyright">
+                                            @error('copyright')
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
                                         </div>
@@ -93,7 +89,7 @@
                                         @enderror
                                         <div>
                                             <button type="submit" class="btn btn-md btn-primary">Submit</button>
-                                            <a href="{{ route('vendor.index') }}" class="btn btn-md btn-info">Back</a>
+                                            <a href="{{ route('general.index') }}" class="btn btn-md btn-info">Back</a>
                                         </div>
                                     </div>
                                 </form>
