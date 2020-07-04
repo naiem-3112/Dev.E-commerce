@@ -42,5 +42,9 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 
 //Sale
     Route::resource('sale', 'SaleController');
+
+//Settings
+    Route::resource('setting/general', 'SettingGeneralController');
+    Route::resource('setting/social', 'SettingSocialController');
 });
 
