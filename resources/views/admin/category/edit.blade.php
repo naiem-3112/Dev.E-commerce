@@ -10,7 +10,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active"><a href="{{ route('category.index') }}">Category List</a>
                         </li>
                         <li class="breadcrumb-item active">Edit Category</li>
@@ -47,6 +47,18 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
+                                            <label for="position_id">Category Position</label>
+                                            <select class="form-control" name="position_id" id="position_id">
+                                                <option disabled selected>Select Category Position</option>
+                                                @for($i=1; $i<=10; $i++)
+                                                    <option value="{{ $i }}" @if($i == $category->position_id) selected @endif>{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                            @error('position_id')
+                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
                                             <div class="row">
                                                 <div class="col-8">
                                                     <label for="image">Image</label>
@@ -69,6 +81,17 @@
                                             <label for="description">Description</label>
                                             <textarea name="description" id="description" rows="4" class="form-control">{{ $category->description }}</textarea>
                                             @error('description')
+                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="featured">Featured</label>
+                                            <select class="form-control" name="featured" id="featured">
+                                                <option style="display: none" value="{{ $category->featured }}" selected>@if($category->featured == 1) Yes @else no @endif</option>
+                                                <option value="1">Yes</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                            @error('featured')
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
                                         </div>

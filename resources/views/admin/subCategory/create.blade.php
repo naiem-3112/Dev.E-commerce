@@ -1,19 +1,19 @@
 @extends('layouts.backend.master')
-@section('base.title', 'Create Category')
+@section('base.title', 'Create SubCategory')
 @section('master.content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Create Category</h1>
+                    <h1 class="m-0 text-dark">Create SubCategory</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('category.index') }}">Category List</a>
+                        <li class="breadcrumb-item active"><a href="{{ route('subCategory.index') }}">SubCategory List</a>
                         </li>
-                        <li class="breadcrumb-item active">Create Category</li>
+                        <li class="breadcrumb-item active">Create SubCategory</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -28,19 +28,31 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Create Category</h3>
-                                <a href="{{ route('category.index') }}" class="btn btn-primary">All Category</a>
+                                <h3 class="card-title">Create SubCategory</h3>
+                                <a href="{{ route('subCategory.index') }}" class="btn btn-primary">All SubCategory</a>
                             </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body p-0">
                             <div class="col-12 col-lg-8 offset-lg-2 col-md-8 offset-md-2 ">
-                                <form action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('subCategory.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label for="name">Category Name</label>
-                                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
+                                            <label for="category_id">Category Name</label>
+                                            <select class="form-control" name="category_id" id="category_id">
+                                                <option disabled selected>Select Category</option>
+                                                @foreach($categories as $category)
+                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('category_id')
+                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name">Sub Category Name</label>
+                                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter sub category name">
                                             @error('name')
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
@@ -51,7 +63,7 @@
                                                 <option disabled selected>Select Category Position</option>
                                                 @for($i=1; $i<=10; $i++)
                                                     <option value="{{ $i }}">{{ $i }}</option>
-                                                @endfor
+                                                    @endfor
                                             </select>
                                             @error('position_id')
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>

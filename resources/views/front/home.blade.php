@@ -92,8 +92,8 @@
                         @foreach($categories as $category)
                         <li><a href="#">{{ $category->name }} <i class="fas fa-angle-right padding"></i></a>
                             <ul>
-                                @foreach($category->childrens as $child_cat)
-                                <li><a  href="#">{{ $child_cat->name }}</a></li>
+                                @foreach($category->subCategories as $category)
+                                <li><a  href="#">{{ $category->name }}</a></li>
                                 @endforeach
                             </ul>
                         </li>

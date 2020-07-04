@@ -6,7 +6,7 @@ Route::get('/', 'FrontPageController@home');
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 //Admin Routes
 Route::prefix('admin')->middleware(['auth'])->group(function () {
@@ -17,6 +17,8 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 //Category
     Route::resource('category', 'CategoryController');
 
+//Sub Category
+    Route::resource('subCategory', 'SubCategoryController');
 //Brand
     Route::resource('brand', 'BrandController');
 

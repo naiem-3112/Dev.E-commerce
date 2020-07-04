@@ -17,8 +17,7 @@ class CategoryController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
-        return view('admin.category.create', compact('categories'));
+        return view('admin.category.create');
     }
 
     public function store(Request $request)
@@ -34,7 +33,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->slug = Str::slug($request->name, '-');
         $category->description = $request->description;
-        $category->parent_id = $request->parent_id;
+        $category->position_id = $request->position_id;
         $category->featured = $request->featured;
         $category->status = $request->status;
 
@@ -72,7 +71,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->slug = Str::slug($request->name, '-');
         $category->description = $request->description;
-        $category->parent_id = $request->parent_id;
+        $category->position_id = $request->position_id;
         $category->featured = $request->featured;
         $category->status = $request->status;
 
