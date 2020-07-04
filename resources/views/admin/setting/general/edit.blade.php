@@ -28,14 +28,14 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Edit General Setting - {{ $general->name }}</h3>
+                                <h3 class="card-title">Edit General Setting - {{ $settingGeneral->name }}</h3>
                                 <a href="{{ route('general.index') }}" class="btn btn-primary">All General Setting</a>
                             </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body p-0">
                             <div class="col-12 col-lg-8 offset-lg-2 col-md-8 offset-md-2 ">
-                                <form action="{{ route('general.update', [$general->id]) }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('general.update', [$settingGeneral->id]) }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="card-body">
@@ -57,7 +57,7 @@
                                                 </div>
                                                 <div class="col-4">
                                                     <div style="margin: 0 auto; width: 100px; overflow: hidden">
-                                                        <img src="{{ asset('logo/website'. $category->logo) }}" class="img-fluid" alt="CatImg">
+                                                        <img src="{{ asset('logo/website/'. $settingGeneral->logo) }}" class="img-fluid" alt="CatImg">
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,17 +86,6 @@
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <div class="form-group">
-                                            <label for="status">Status</label>
-                                            <select class="form-control" name="status" id="status">
-                                                <option style="display: none" value="{{ $general->status }}" selected>@if($general->status == 1) active @else inactive @endif</option>
-                                                <option value="1">active</option>
-                                                <option value="0">inactive</option>
-                                            </select>
-                                        </div>
-                                        @error('status')
-                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
-                                        @enderror
                                         <div>
                                             <button type="submit" class="btn btn-md btn-primary">Update</button>
                                             <a href="{{ route('general.index') }}" class="btn btn-md btn-info">Back</a>

@@ -1,17 +1,17 @@
 @extends('layouts.backend.master')
-@section('base.title', 'Vendor List')
+@section('base.title', 'General Setting List')
 @section('master.content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Vendor List</h1>
+                    <h1 class="m-0 text-dark">General Setting List</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Vendor</li>
+                        <li class="breadcrumb-item active">General Setting</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -25,8 +25,8 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Vendor List</h3>
-                                <a href="{{ route('vendor.create') }}" class="btn btn-primary">Create Vendor</a>
+                                <h3 class="card-title">General Setting List</h3>
+                                <a href="{{ route('general.create') }}" class="btn btn-primary">Create General Setting</a>
                             </div>
                         </div>
                         <div class="card-body p-0">
@@ -34,42 +34,40 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Vendor Name</th>
-                                    <th>Slug</th>
-                                    <th>Email</th>
-                                    <th>Company Name</th>
-                                    <th>contact</th>
-                                    <th>Status</th>
+                                    <th>Welcome Message</th>
+                                    <th>Cell</th>
+                                    <th>Moto</th>
+                                    <th>Copyright</th>
+                                    <th>Logo</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @if($vendors->count() > 0)
-                                    @foreach($vendors as $vendor)
+                                @if($settingGeneral)
                                         <tr>
-                                            <th scope="row">{{ $vendor->id }}</th>
-                                            <td>{{ $vendor->name }}</td>
-                                            <td>{{ $vendor->slug  }}</td>
-                                            <td>{{ $vendor->email }}</td>
-                                            <td>{{ $vendor->company_name }}</td>
-                                            <td>{{ $vendor->contact }}</td>
+                                            <th scope="row">{{ $settingGeneral->id }}</th>
+                                            <td>{{ $settingGeneral->welcome_msg }}</td>
+                                            <td>{{ $settingGeneral->cell  }}</td>
+                                            <td>{{ $settingGeneral->moto }}</td>
+                                            <td>{{ $settingGeneral->copyright }}</td>
                                             <td>
-                                                @if($vendor->status == 1) <span class="badge badge-success">Active</span>@else
-                                                    <span class="badge badge-danger">Inactive</span> @endif
+                                                <div style="margin: 0 auto; width: 60px; overflow: hidden">
+                                                    <img class="img-fluid" src="{{ asset('logo/website/'. $settingGeneral->logo) }}"
+                                                         alt="catImg">
+                                                </div>
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-warning btn-xs" href="{{ route('vendor.edit', $vendor->id) }}"><i class="fas fa-pen-square"></i></a>
-                                                <form action="{{ route('vendor.destroy', $vendor->id) }}" method="post" style="display: inline-block">
+                                                <a class="btn btn-sm btn-warning btn-xs" href="{{ route('general.edit', $settingGeneral->id) }}"><i class="fas fa-pen-square"></i></a>
+                                                <form action="{{ route('general.destroy', $settingGeneral->id) }}" method="post" style="display: inline-block">
                                                     @method('DELETE')
                                                     @csrf
                                                     <button onclick="alert('Are You Sure to DELETE!')" class="btn btn-sm btn-danger btn-xs"><i class="fas fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
-                                    @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="10" style="text-align: center; color: grey">No vendor found</td>
+                                        <td colspan="8" style="text-align: center; color: grey">No setting general found</td>
                                     </tr>
                                 @endif
                                 </tbody>

@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-lg-3 text-left text-white topbar-left">
-                Welcome you to Ecolife store!
+                {{ $settingGeneral->welcome_msg }}
             </div>
             <div class="col-md-9 col-lg-9 text-right text-white topbar-right">
                 <ul>
@@ -43,8 +43,8 @@
 <div class="container-fluid pt-4 pb-4 searchBar">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-lg-2 text-left text-white">
-                <a href="index.html"><img src="{{asset('front_template/images/logo.jpg')}}" alt="Logo"></a>
+            <div style="width: 80px; overflow: hidden; border-radius: 15%">
+                <a href="index.html"><img src="{{asset('logo/website/'. $settingGeneral->logo)}}" class="img-fluid" alt="Logo"></a>
             </div>
             <div class="col-md-6 col-lg-5 text-center">
                 <form action="#">
@@ -60,7 +60,7 @@
             </div>
             <div class="col-md-6 col-lg-5 text-center text-white searchbar-right">
                 <ul>
-                    <li><a href="#"><i class="fas fa-headset"></i> Call Us: <span>(+800)345678</span></a></li>
+                    <li><a href="#"><i class="fas fa-headset"></i> Call Us: <span>(+88){{ $settingGeneral->cell }}</span></a></li>
                     <li><a href="#"><i class="fas fa-balance-scale-left"></i>
                             <p class="count">5</p></a></li>
 
@@ -660,11 +660,12 @@
 <div class="container-fluid pt-2 footer">
     <div class="row">
         <div class="col-md-6 col-lg-4 pt-5 text-left text-white footer-left">
-            <img src="{{asset('front_template/images/logo.jpg')}}" alt="">
+            <div style="width: 80px; overflow: hidden; border-radius: 15%">
+                <a href="index.html"><img src="{{asset('logo/website/'. $settingGeneral->logo)}}" class="img-fluid" alt="Logo"></a>
+            </div>
             <p class="footer_txt">We are a team of designers and developers that create high quality HTML template</p>
             <i class="fas fa-phone-volume phone"></i><span>Need Help?</span>
-            <p>(+800) 123 456</p>
-            <p class="footer_txt_last">(+800) 345 678</p>
+            <p>(+800) {{ $settingGeneral->cell }}</p>
             <div class="icons">
                 <a href=""><i class="fab fa-facebook-f"></i></a>
                 <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -672,7 +673,7 @@
                 <a href=""><i class="fab fa-facebook-f"></i></a>
                 <a href=""><i class="fab fa-facebook-f"></i></a>
             </div>
-            <p class="copyright">Copyright © HasThemes. All Rights Reserved</p>
+            <p class="copyright">Copyright © {{ $settingGeneral->copyright }}. All Rights Reserved</p>
         </div>
         <div class="col-md-6 col-lg-2 footer-right">
             <h2>Information</h2>

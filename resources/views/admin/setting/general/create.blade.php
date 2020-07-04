@@ -76,17 +76,6 @@
                                             <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <div class="form-group">
-                                            <label for="status">Status</label>
-                                            <select class="form-control" name="status" id="status">
-                                                <option style="display: none" selected>Select Status</option>
-                                                <option value="1">Active</option>
-                                                <option value="0">Inactive</option>
-                                            </select>
-                                        </div>
-                                        @error('status')
-                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
-                                        @enderror
                                         <div>
                                             <button type="submit" class="btn btn-md btn-primary">Submit</button>
                                             <a href="{{ route('general.index') }}" class="btn btn-md btn-info">Back</a>
