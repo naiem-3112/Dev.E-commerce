@@ -46,6 +46,18 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
+                                            <label for="parent_id">Parent Category</label>
+                                            <select class="form-control" name="parent_id" id="parent_id">
+                                                <option disabled selected>Select Parent Category</option>
+                                                @foreach($categories as $category)
+                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    @endforeach
+                                            </select>
+                                            @error('parent_id')
+                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
                                             <label for="image">Image</label>
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="image" id="image">
@@ -63,16 +75,27 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
+                                            <label for="featured">Featured</label>
+                                            <select class="form-control" name="featured" id="featured">
+                                                <option style="display: none" selected>Select Featured</option>
+                                                <option value="1">Yes</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                            @error('featured')
+                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
                                             <label for="status">Status</label>
                                             <select class="form-control" name="status" id="status">
                                                 <option style="display: none" selected>Select Status</option>
                                                 <option value="1">Active</option>
                                                 <option value="0">Inactive</option>
                                             </select>
+                                            @error('status')
+                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                            @enderror
                                         </div>
-                                        @error('status')
-                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
-                                        @enderror
                                         <div>
                                             <button type="submit" class="btn btn-md btn-primary">Submit</button>
                                             <a href="{{ route('category.index') }}" class="btn btn-md btn-info">Back</a>

@@ -21,15 +21,17 @@
 <div class="container-fluid pt-2 pb-2 topbar">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-lg-9 text-left text-white topbar-left">
+            <div class="col-md-3 col-lg-3 text-left text-white topbar-left">
                 Welcome you to Ecolife store!
             </div>
-            <div class="col-md-6 col-lg-3 text-white topbar-right">
+            <div class="col-md-9 col-lg-9 text-right text-white topbar-right">
                 <ul>
                     <li><a href="#">Settings <i class="fas fa-cog"></i> <i class="fas fa-angle-down"></i></a></li>
                     <li><a href="#">Currency <i class="fas fa-dollar-sign"></i> <i class="fas fa-angle-down"></i></a>
                     </li>
                     <li><a href="#">Language <i class="fas fa-language"></i> <i class="fas fa-angle-down"></i></a></li>
+                    <li><a href="#">Login <i class="fas fa-sign-in-alt"></i></a></li>
+                    <li><a href="#">Registration <i class="fas fa-registered"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -82,28 +84,20 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav menu">
                 <li class="nav-item active">
                     <a class="nav-link" href="#"> <i class="fas fa-bars"></i> all categories <i class="fas fa-angle-down pr-5"></i><span class="sr-only">(current)</span></a>
                     <ul>
-                        <li><a href="#">Category 1 <i class="fas fa-angle-right padding"></i></a>
+                        @foreach($categories as $category)
+                        <li><a href="#">{{ $category->name }} <i class="fas fa-angle-right padding"></i></a>
                             <ul>
-                                <li><a  href="#">SubCategory 2</a></li>
-                                <li><a  href="#">SubCategory 3</a></li>
-                                <li><a  href="#">SubCategory 4</a></li>
-                                <li><a  href="#">SubCategory 5</a></li>
-                                <li><a  href="#">SubCategory 6</a></li>
-                                <li><a  href="#">SubCategory 7</a></li>
+                                @foreach($category->childrens as $child_cat)
+                                <li><a  href="#">{{ $child_cat->name }}</a></li>
+                                @endforeach
                             </ul>
                         </li>
-                        <li><a  href="#">Category 2</a></li>
-                        <li><a  href="#">Category 3</a></li>
-                        <li><a  href="#">Category 4</a></li>
-                        <li><a  href="#">Category 5</a></li>
-                        <li><a  href="#">Category 6</a></li>
-                        <li><a  href="#">Category 7</a></li>
+                        @endforeach
                     </ul>
                 </li>
 

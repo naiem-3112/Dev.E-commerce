@@ -37,7 +37,9 @@
                                     <th>Category Name</th>
                                     <th>Slug</th>
                                     <th>Description</th>
+                                    <th>Parent Category</th>
                                     <th>Image</th>
+                                    <th>Featured</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -50,11 +52,16 @@
                                             <td>{{ $category->name }}</td>
                                             <td>{{ $category->slug  }}</td>
                                             <td>{{ $category->description }}</td>
+                                            <td>{{ $category->parent ? $category->parent->name : ''}}</td>
                                             <td>
                                                 <div style="margin: 0 auto; width: 60px; overflow: hidden">
                                                     <img class="img-fluid" src="{{ asset('images/category/'. $category->image) }}"
                                                          alt="catImg">
                                                 </div>
+                                            </td>
+                                            <td>
+                                                @if($category->featured == 1) <span class="badge badge-info">Yes</span>@else
+                                                    <span class="badge badge-warning">No</span> @endif
                                             </td>
                                             <td>
                                                 @if($category->status == 1) <span class="badge badge-success">Active</span>@else
@@ -72,7 +79,7 @@
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="7" style="text-align: center; color: grey">No category found</td>
+                                        <td colspan="9" style="text-align: center; color: grey">No category found</td>
                                     </tr>
                                 @endif
                                 </tbody>

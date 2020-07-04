@@ -17,13 +17,16 @@ class CategoryController extends Controller
 
     public function create()
     {
-        return view('admin.category.create');
+        $categories = Category::all();
+        return view('admin.category.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|unique:categories,name',
+            'featured' => 'required',
+            'status' => 'required'
         ]);
 
         $category = new Category();
@@ -31,6 +34,8 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->slug = Str::slug($request->name, '-');
         $category->description = $request->description;
+        $category->parent_id = $request->parent_id;
+        $category->featured = $request->featured;
         $category->status = $request->status;
 
         if ($request->hasFile('image')) {
@@ -60,11 +65,15 @@ class CategoryController extends Controller
     {
         $this->validate($request, [
             'name' => "required|unique:categories,name,$category->id",
+            'featured' => 'required',
+            'status' => 'required'
         ]);
 
         $category->name = $request->name;
         $category->slug = Str::slug($request->name, '-');
         $category->description = $request->description;
+        $category->parent_id = $request->parent_id;
+        $category->featured = $request->featured;
         $category->status = $request->status;
 
         if ($request->hasFile('image')) {
