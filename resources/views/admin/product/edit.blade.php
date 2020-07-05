@@ -10,7 +10,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active"><a href="{{ route('product.index') }}">Product List</a>
                         </li>
                         <li class="breadcrumb-item active">Edit Product</li>
@@ -39,6 +39,18 @@
                                     @csrf
                                     @method('PUT')
                                     <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="category_id">Category Name</label>
+                                            <select class="form-control" name="category_id" id="category_id">
+                                                <option selected>Select Category</option>
+                                                @foreach($categories as $category)
+                                                    <option @if($category->id == $product->category->id) selected @endif value="{{ $category->id }}">{{ $category->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('category_id')
+                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                         <div class="form-group">
                                             <label for="name">Product Name</label>
                                             <input type="text" class="form-control" name="name" id="name" value="{{ $product->name }}">

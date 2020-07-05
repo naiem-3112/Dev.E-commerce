@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -17,7 +18,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin.product.create');
+        $categories = Category::all();
+        return view('admin.product.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -30,6 +32,7 @@ class ProductController extends Controller
 
         $product = new Product();
 
+        $product->category_id = $request->category_id;
         $product->name = $request->name;
         $product->slug = Str::slug($request->name, '-');
         $product->description = $request->description;
@@ -56,7 +59,8 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        return view('admin.product.edit', compact('product'));
+        $categories = Category::all();
+        return view('admin.product.edit', compact('product', 'categories'));
     }
 
     public function update(Request $request, Product $product)
@@ -68,6 +72,7 @@ class ProductController extends Controller
             'price' => 'required'
         ]);
 
+        $product->category_id = $request->category_id;
         $product->name = $request->name;
         $product->slug = Str::slug($request->name, '-');
         $product->description = $request->description;

@@ -18,7 +18,7 @@
 <body>
 <button class="topbtn"><i class="fas fa-angle-up"></i></button>
 <!--TopBar-->
-@if($settingGeneral) != null)
+@if($settingGeneral != null)
 <div class="container-fluid pt-2 pb-2 topbar">
     <div class="container">
         <div class="row">
@@ -44,7 +44,7 @@
 <div class="container-fluid pt-4 pb-4 searchBar">
     <div class="container">
         <div class="row">
-            <div style="width: 50px; overflow: hidden; border-radius: 15%">
+            <div style="width: 100px; overflow: hidden;">
                 <a href="index.html"><img src="{{asset('logo/website/'. $settingGeneral->logo)}}" class="img-fluid" alt="Logo"></a>
             </div>
             <div class="col-md-6 col-lg-5 text-center">

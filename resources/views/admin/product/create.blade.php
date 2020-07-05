@@ -39,6 +39,18 @@
                                     @csrf
                                     <div class="card-body">
                                         <div class="form-group">
+                                            <label for="category_id">Category Name</label>
+                                            <select class="form-control" name="category_id" id="category_id">
+                                                <option     selected>Select Category</option>
+                                                @foreach($categories as $category)
+                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('category_id')
+                                            <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
                                             <label for="name">Product Name</label>
                                             <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
                                             @error('name')

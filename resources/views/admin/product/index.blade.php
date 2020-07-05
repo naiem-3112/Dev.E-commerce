@@ -36,6 +36,7 @@
                                     <th>ID</th>
                                     <th>Product Name</th>
                                     <th>Slug</th>
+                                    <th>Category</th>
                                     <th>Description</th>
                                     <th>Price <small>(Tk)</small></th>
                                     <th>Image</th>
@@ -50,6 +51,7 @@
                                             <th scope="row">{{ $product->id }}</th>
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->slug  }}</td>
+                                            <td>{{ $product->category->name }}</td>
                                             <td>{{ $product->description }}</td>
                                             <td>{{ $product->price }}/=</td>
                                             <td>
@@ -74,7 +76,7 @@
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="8" style="text-align: center; color: grey">No product found</td>
+                                        <td colspan="9" style="text-align: center; color: grey">No product found</td>
                                     </tr>
                                 @endif
                                 </tbody>
