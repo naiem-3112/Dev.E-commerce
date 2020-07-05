@@ -18,6 +18,7 @@
 <body>
 <button class="topbtn"><i class="fas fa-angle-up"></i></button>
 <!--TopBar-->
+@if($settingGeneral) != null)
 <div class="container-fluid pt-2 pb-2 topbar">
     <div class="container">
         <div class="row">
@@ -43,7 +44,7 @@
 <div class="container-fluid pt-4 pb-4 searchBar">
     <div class="container">
         <div class="row">
-            <div style="width: 80px; overflow: hidden; border-radius: 15%">
+            <div style="width: 50px; overflow: hidden; border-radius: 15%">
                 <a href="index.html"><img src="{{asset('logo/website/'. $settingGeneral->logo)}}" class="img-fluid" alt="Logo"></a>
             </div>
             <div class="col-md-6 col-lg-5 text-center">
@@ -58,7 +59,7 @@
 
                 </form>
             </div>
-            <div class="col-md-6 col-lg-5 text-center text-white searchbar-right">
+            <div class="col-md-8 col-lg-6 text-center text-white searchbar-right">
                 <ul>
                     <li><a href="#"><i class="fas fa-headset"></i> Call Us: <span>(+88){{ $settingGeneral->cell }}</span></a></li>
                     <li><a href="#"><i class="fas fa-balance-scale-left"></i>
@@ -713,7 +714,19 @@
     </div>
 </div>
 <!-- End of Footer -->
+{{--style="margin: 170px 170px 0 170px; style=" ""--}}
+@else
+    <div class="row">
+        <h2 style="margin-top: 100px;  background: #2b2b2b; padding: 10px; text-align: center; font-weight: bold; color: #c51f1a" class="col-lg-8 offset-2 col-md-8 offset-2">Please Set-up Your Setting Section First </h2>
+    </div>
+    <div class="row">
+       <i style="margin: 0 auto; font-size: 50px; padding: 5px; color: red" class="fas fa-arrow-down"></i>
+    </div>
+<div class="row">
+    <a class="col-lg-2 offset-5 col-md-2 offset-5" style="border-bottom: 1px solid #5cb85c; text-align: center; font-weight: bold; text-decoration: none; color: #0e5b44"  href="{{ route('admin.dashboard') }}" target="_blank" >Go To Admin Dashboard</a>
 
+</div>
+@endif
 
 <script src="{{asset('front_template/js/jquery-3.5.1.min.js')}}"></script>
 <script src="{{asset('front_template/js/bootstrap.min.js')}}"></script>
