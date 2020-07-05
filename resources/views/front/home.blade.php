@@ -142,25 +142,17 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
         <div class="carousel-inner">
+            @foreach($products as $product)
             <div class="carousel-item active">
-                <img src="{{asset('front_template/images/banner1.jpg')}}" class="d-block w-100" alt="...">
+                <img src="{{asset('images/product/'.$product->image)}}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2>Product Type</h2>
-                    <h1>Category Name</h1>
-                    <p>Product Description</p>
+                    <h2>{{ $product->name }}</h2>
+                    <h1>{{ $product->category->name }}</h1>
+                    <p>{{ $product->description }}</p>
                     <button type="button" class="btn btn-primary text-uppercase">Shop now</button>
                 </div>
             </div>
-
-            <div class="carousel-item">
-                <img src="{{asset('front_template/images/banner-2.jpg')}}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2>Product Type</h2>
-                    <h1>Category Name</h1>
-                    <p>Product Description</p>
-                    <button type="button" class="btn btn-primary text-uppercase">Shop now</button>
-                </div>
-            </div>
+            @endforeach
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -325,89 +317,18 @@
     <p class="section_description">Add Popular Categories to weekly line up</p>
     <div class="container">
         <div class="row category-slick">
-
+            @foreach($categories as $category)
             <div class="popular_categories">
                 <div class="category_image">
                     <img src="{{asset('front_template/images/category_1.jpg')}}" alt="">
                 </div>
                 <div class="category_txt">
-                    <h1>Category Name</h1>
-                    <p>17 Products</p>
+                    <h1>{{ $category->name }}</h1>
+                    <p>{{ $category->products->count() }}</p>
                     <a href="">shop now <i class="fas fa-angle-right"></i></a>
                 </div>
             </div>
-
-            <div class="popular_categories">
-                <div class="category_image">
-                    <img src="{{asset('front_template/images/category_2.jpg')}}" alt="">
-                </div>
-                <div class="category_txt">
-                    <h1>Category Name</h1>
-                    <p>17 Products</p>
-                    <a href="">shop now <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="popular_categories">
-                <div class="category_image">
-                    <img src="{{asset('front_template/images/category_3.jpg')}}" alt="">
-                </div>
-                <div class="category_txt">
-                    <h1>Category Name</h1>
-                    <p>17 Products</p>
-                    <a href="">shop now <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="popular_categories">
-                <div class="category_image">
-                    <img src="{{asset('front_template/images/category_4.jpg')}}" alt="">
-                </div>
-                <div class="category_txt">
-                    <h1>Category Name</h1>
-                    <p>17 Products</p>
-                    <a href="">shop now <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="popular_categories">
-                <div class="category_image">
-                    <img src="{{asset('front_template/images/category_5.jpg')}}" alt="">
-                </div>
-                <div class="category_txt">
-                    <h1>Category Name</h1>
-                    <p>17 Products</p>
-                    <a href="">shop now <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="popular_categories">
-                <div class="category_image">
-                    <img src="{{asset('front_template/images/category_6.jpg')}}" alt="">
-                </div>
-                <div class="category_txt">
-                    <h1>Category Name</h1>
-                    <p>17 Products</p>
-                    <a href="">shop now <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="popular_categories">
-                <div class="category_image">
-                    <img src="{{asset('front_template/images/category_7.jpg')}}" alt="">
-                </div>
-                <div class="category_txt">
-                    <h1>Category Name</h1>
-                    <p>17 Products</p>
-                    <a href="">shop now <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="popular_categories">
-                <div class="category_image">
-                    <img src="{{asset('front_template/images/category_8.jpg')}}" alt="">
-                </div>
-                <div class="category_txt">
-                    <h1>Category Name</h1>
-                    <p>17 Products</p>
-                    <a href="">shop now <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-
+            @endforeach
         </div>
     </div>
 </div>
@@ -535,7 +456,7 @@
 </div>
 <!-- End of Hot Deals -->
 
-<!-- Hot Deals -->
+<!-- New Arrivals -->
 <div class="container-fluid pt-5 pb-4">
     <h3 class="section_title">New Arrivals</h3>
     <p class="section_description">Add New products to weekly line up</p>
