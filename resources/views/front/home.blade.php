@@ -142,9 +142,9 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
         <div class="carousel-inner">
-            @foreach($products as $product)
-            <div class="carousel-item active">
-                <img src="{{asset('images/product/'.$product->image)}}" class="d-block w-100" alt="...">
+            @foreach($products as $key => $product)
+            <div class="carousel-item {{ $key == 0 ? 'active' : ''}}">
+                <img src="{{asset('images/product/'.$product->image)}}" class="img-fluid d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h2>{{ $product->name }}</h2>
                     <h1>{{ $product->category->name }}</h1>
@@ -462,116 +462,28 @@
     <p class="section_description">Add New products to weekly line up</p>
     <div class="container">
         <div class="row hot-slick">
-
-            <div class="hot_deals">
-                <div class="hot_deals_image">
-                    <img src="{{asset('front_template/images/hot_deal_1-1.jpg')}}" alt="">
+            @foreach($newProducts as $product)
+            <div class="hot_deals" style="height: 40vh">
+                <div class="" style="height: 100%; overflow: hidden;">
+                    <img src="{{asset('images/product/'.$product->image)}}" class="img-fluid" alt="">
                 </div>
                 <div class="search_icon">
                     <a href="" class="search_button"><i class="fas fa-search"></i></a>
-
                     <a href="" class="addtocart">add to cart</a>
                     <a href="#"><i class="fas fa-balance-scale-right"></i></a>
                     <a href="#"><i class="far fa-bookmark"></i></a>
                 </div>
-                <div class="hot_deals_txt">
+                <div class="hot_deals_txt" style="height: 100%; padding: 0">
                     <p>Product Type</p>
-                    <h1>Product Name</h1>
+                    <h1>{{ $product->name }}</h1>
                     <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
                     <i class="far fa-star"></i><i class="far fa-star"></i>
-                    <p class="price"><del><span>$20</span></del><span> 34.21</span><span class="discount"> 5%</span></p>
+                    <p class="price"><del><span>${{ $product->pricre }}</span></del><span> 34.21</span><span class="discount"> 5%</span></p>
                     <p>Availablity: <span>300 in stock</span></p>
                     <p>Hurry Up Offers Ends in: <span>2h:30h:15s</span></p>
                 </div>
             </div>
-
-            <div class="hot_deals">
-                <div class="hot_deals_image">
-                    <img src="{{asset('front_template/images/hot_deal_1-1.jpg')}}" alt="">
-                </div>
-                <div class="search_icon">
-                    <a href="" class="search_button"><i class="fas fa-search"></i></a>
-
-                    <a href="" class="addtocart">add to cart</a>
-                    <a href="#"><i class="fas fa-balance-scale-right"></i></a>
-                    <a href="#"><i class="far fa-bookmark"></i></a>
-                </div>
-                <div class="hot_deals_txt">
-                    <p>Product Type</p>
-                    <h1>Product Name</h1>
-                    <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                    <i class="far fa-star"></i><i class="far fa-star"></i>
-                    <p class="price"><del><span>$20</span></del><span> 34.21</span><span class="discount"> 5%</span></p>
-                    <p>Availablity: <span>300 in stock</span></p>
-                    <p>Hurry Up Offers Ends in: <span>2h:30h:15s</span></p>
-                </div>
-            </div>
-
-            <div class="hot_deals">
-                <div class="hot_deals_image">
-                    <img src="{{asset('front_template/images/hot_deal_1-1.jpg')}}" alt="">
-                </div>
-                <div class="search_icon">
-                    <a href="" class="search_button"><i class="fas fa-search"></i></a>
-
-                    <a href="" class="addtocart">add to cart</a>
-                    <a href="#"><i class="fas fa-balance-scale-right"></i></a>
-                    <a href="#"><i class="far fa-bookmark"></i></a>
-                </div>
-                <div class="hot_deals_txt">
-                    <p>Product Type</p>
-                    <h1>Product Name</h1>
-                    <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                    <i class="far fa-star"></i><i class="far fa-star"></i>
-                    <p class="price"><del><span>$20</span></del><span> 34.21</span><span class="discount"> 5%</span></p>
-                    <p>Availablity: <span>300 in stock</span></p>
-                    <p>Hurry Up Offers Ends in: <span>2h:30h:15s</span></p>
-                </div>
-            </div>
-
-            <div class="hot_deals">
-                <div class="hot_deals_image">
-                    <img src="{{asset('front_template/images/hot_deal_1-1.jpg')}}" alt="">
-                </div>
-                <div class="search_icon">
-                    <a href="" class="search_button"><i class="fas fa-search"></i></a>
-
-                    <a href="" class="addtocart">add to cart</a>
-                    <a href="#"><i class="fas fa-balance-scale-right"></i></a>
-                    <a href="#"><i class="far fa-bookmark"></i></a>
-                </div>
-                <div class="hot_deals_txt">
-                    <p>Product Type</p>
-                    <h1>Product Name</h1>
-                    <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                    <i class="far fa-star"></i><i class="far fa-star"></i>
-                    <p class="price"><del><span>$20</span></del><span> 34.21</span><span class="discount"> 5%</span></p>
-                    <p>Availablity: <span>300 in stock</span></p>
-                    <p>Hurry Up Offers Ends in: <span>2h:30h:15s</span></p>
-                </div>
-            </div>
-
-            <div class="hot_deals">
-                <div class="hot_deals_image">
-                    <img src="{{asset('front_template/images/hot_deal_1-1.jpg')}}" alt="">
-                </div>
-                <div class="search_icon">
-                    <a href="" class="search_button"><i class="fas fa-search"></i></a>
-
-                    <a href="" class="addtocart">add to cart</a>
-                    <a href="#"><i class="fas fa-balance-scale-right"></i></a>
-                    <a href="#"><i class="far fa-bookmark"></i></a>
-                </div>
-                <div class="hot_deals_txt">
-                    <p>Product Type</p>
-                    <h1>Product Name</h1>
-                    <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                    <i class="far fa-star"></i><i class="far fa-star"></i>
-                    <p class="price"><del><span>$20</span></del><span> 34.21</span><span class="discount"> 5%</span></p>
-                    <p>Availablity: <span>300 in stock</span></p>
-                    <p>Hurry Up Offers Ends in: <span>2h:30h:15s</span></p>
-                </div>
-            </div>
+            @endforeach
 
         </div>
     </div>
