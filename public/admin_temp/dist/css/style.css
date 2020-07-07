@@ -651,43 +651,44 @@ select.form-control:not([size]):not([multiple]) {
       color: #6777ef;
       padding-right: 10px;
       margin-bottom: 0; }
-      .card .card-header h4 + .card-header-action,
-      .card .card-header h4 + .card-header-form {
+      
+      .card .card-header h4 + a + .card-header-action,
+      .card .card-header h4 + a + .card-header-form {
         margin-left: auto; }
-        .card .card-header h4 + .card-header-action .btn,
-        .card .card-header h4 + .card-header-form .btn {
+        .card .card-header h4 + a + .card-header-action .btn,
+        .card .card-header h4 + a + .card-header-form .btn {
           font-size: 12px;
           border-radius: 30px !important;
           padding-left: 13px !important;
           padding-right: 13px !important; }
-          .card .card-header h4 + .card-header-action .btn.active,
-          .card .card-header h4 + .card-header-form .btn.active {
+          .card .card-header h4 + a + .card-header-action .btn.active,
+          .card .card-header h4 + a + .card-header-form .btn.active {
             box-shadow: 0 2px 6px #acb5f6;
             background-color: #6777ef;
             color: #fff; }
-        .card .card-header h4 + .card-header-action .dropdown,
-        .card .card-header h4 + .card-header-form .dropdown {
+        .card .card-header h4 + a + .card-header-action .dropdown,
+        .card .card-header h4 + a + .card-header-form .dropdown {
           display: inline; }
-        .card .card-header h4 + .card-header-action .btn-group .btn,
-        .card .card-header h4 + .card-header-form .btn-group .btn {
+        .card .card-header h4 + a + .card-header-action .btn-group .btn,
+        .card .card-header h4 + a + .card-header-form .btn-group .btn {
           border-radius: 0 !important; }
-        .card .card-header h4 + .card-header-action .btn-group .btn:first-child,
-        .card .card-header h4 + .card-header-form .btn-group .btn:first-child {
+        .card .card-header h4 + a + .card-header-action .btn-group .btn:first-child,
+        .card .card-header h4 + a + .card-header-form .btn-group .btn:first-child {
           border-radius: 30px 0 0 30px !important; }
-        .card .card-header h4 + .card-header-action .btn-group .btn:last-child,
-        .card .card-header h4 + .card-header-form .btn-group .btn:last-child {
+        .card .card-header h4 + a + .card-header-action .btn-group .btn:last-child,
+        .card .card-header h4 + a + .card-header-form .btn-group .btn:last-child {
           border-radius: 0 30px 30px 0 !important; }
-        .card .card-header h4 + .card-header-action .input-group .form-control,
-        .card .card-header h4 + .card-header-form .input-group .form-control {
+        .card .card-header h4 + a + .card-header-action .input-group .form-control,
+        .card .card-header h4 + a + .card-header-form .input-group .form-control {
           border-radius: 30px 0 0 30px !important; }
-          .card .card-header h4 + .card-header-action .input-group .form-control + .input-group-btn .btn,
-          .card .card-header h4 + .card-header-form .input-group .form-control + .input-group-btn .btn {
+          .card .card-header h4 + a + .card-header-action .input-group .form-control + .input-group-btn .btn,
+          .card .card-header h4 + a + .card-header-form .input-group .form-control + .input-group-btn .btn {
             border-radius: 0 30px 30px 0 !important; }
-        .card .card-header h4 + .card-header-action .input-group .input-group-btn + .form-control,
-        .card .card-header h4 + .card-header-form .input-group .input-group-btn + .form-control {
+        .card .card-header h4 + a + .card-header-action .input-group .input-group-btn + .form-control,
+        .card .card-header h4 + a + .card-header-form .input-group .input-group-btn + .form-control {
           border-radius: 0 30px 30px 0 !important; }
-        .card .card-header h4 + .card-header-action .input-group .input-group-btn .btn,
-        .card .card-header h4 + .card-header-form .input-group .input-group-btn .btn {
+        .card .card-header h4 + a + .card-header-action .input-group .input-group-btn .btn,
+        .card .card-header h4 + a + .card-header-form .input-group .input-group-btn .btn {
           margin-top: -1px;
           border-radius: 30px 0 0 30px !important; }
   .card .card-footer {
@@ -914,7 +915,8 @@ select.form-control:not([size]):not([multiple]) {
 
 /* 3.6 Table */
 .table {
-  color: inherit; }
+  color: inherit;
+  overflow: hidden !important;}
   .table td, .table:not(.table-bordered) th {
     border-top: none; }
   .table:not(.table-sm):not(.table-md):not(.dataTable) td,
@@ -2339,11 +2341,21 @@ pre {
   z-index: 1; }
   .section > *:first-child {
     margin-top: -7px; }
+    
   .section .section-header {
+    /* make full width */
+    margin-left: -30px;
+    margin-right: -30px;
+    margin-top: -10px;
+    border-radius: 0;
+    border-top: 1px solid #f9f9f9;
+    padding-left: 35px;
+    padding-right: 35px;
+    /* make full width */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
     background-color: #fff;
-    border-radius: 3px;
+    border-radius: 0px;
     border: none;
     position: relative;
     margin-bottom: 30px;

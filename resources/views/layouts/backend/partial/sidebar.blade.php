@@ -5,7 +5,7 @@
             <a href="{{ route('admin.dashboard')}}">Dev E-commerce</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="{{ route('admin.dashboard')}}">DE</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Modules</li>
