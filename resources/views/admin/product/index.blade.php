@@ -1,85 +1,109 @@
 @extends('layouts.backend.master')
 @section('base.title', 'Product List')
 @section('master.content')
-    <!-- Content Header (Page header) -->
-    <div class="section-header">
-        <h1>All Brands</h1>
-        <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
-            <div class="breadcrumb-item">Product</div>
-        </div>
+<!-- Content Header (Page header) -->
+<div class="section-header">
+    <h1>All Products</h1>
+    <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
+        <div class="breadcrumb-item">Product</div>
     </div>
-    <!-- /.content-header -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Product List</h3>
-                                <a href="{{ route('product.create') }}" class="btn btn-primary">Create Product</a>
-                            </div>
+</div>
+<!-- /.content-header -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Product List</h4>
+                        <a href="{{ route('product.create') }}" class="btn btn-icon btn-left btn-primary"><i
+                                class="fas fa-plus"></i> Add New</a>
+                        <div class="card-header-form">
+                            <form>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="card-body p-0">
-                            <table style="text-align: center" class="table table-striped table-bordered table-hover">
-                                <thead>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Product Name</th>
-                                    <th>Slug</th>
-                                    <th>Category</th>
-                                    <th>Description</th>
-                                    <th>Price <small>(Tk)</small></th>
-                                    <th>Image</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th>
+                                        <div class="custom-checkbox custom-control" >
+                                            <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad"
+                                                class="custom-control-input" id="checkbox-all">
+                                            <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
+                                        </div>
+                                    </th>
+                                    <th class="p-0 text-center">ID</th>
+                                    <th class="p-0 text-center">Product Name</th>
+                                    <th class="p-0 text-center">Slug</th>
+                                    <th class="p-0 text-center">Category</th>
+                                    <th class="p-0 text-center">Description</th>
+                                    <th class="p-0 text-center">Price <small>(Tk)</small></th>
+                                    <th class="p-0 text-center">Image</th>
+                                    <th class="p-0 text-center">Status</th>
+                                    <th class="p-0 text-center">Action</th>
                                 </tr>
-                                </thead>
-                                <tbody>
                                 @if($products->count() > 0)
-                                    @foreach($products as $product)
-                                        <tr>
-                                            <th scope="row">{{ $product->id }}</th>
-                                            <td>{{ $product->name }}</td>
-                                            <td>{{ $product->slug  }}</td>
-                                            <td>{{ $product->category->name }}</td>
-                                            <td>{{ $product->description }}</td>
-                                            <td>{{ $product->price }}/=</td>
-                                            <td>
-                                                <div style="margin: 0 auto; width: 60px; overflow: hidden">
-                                                    <img class="img-fluid" src="{{ asset('images/product/'. $product->image) }}"
-                                                         alt="catImg">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                @if($product->status == 1) <span class="badge badge-success">Active</span>@else
-                                                    <span class="badge badge-danger">Inactive</span> @endif
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-sm btn-warning btn-xs" href="{{ route('product.edit', $product->id) }}"><i class="fas fa-pen-square"></i></a>
-                                                <form action="{{ route('product.destroy', $product->id) }}" method="post" style="display: inline-block">
-                                                    @method('DELETE')
-                                                    @csrf
-                                                    <button onclick="alert('Are You Sure to DELETE!')" class="btn btn-sm btn-danger btn-xs"><i class="fas fa-trash"></i></button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                @foreach($products as $product)
+                                <tr>
+                                    <td>
+                                        <div class="custom-checkbox custom-control">
+                                            <input type="checkbox" data-checkboxes="mygroup"
+                                                class="custom-control-input" id="checkbox-1">
+                                            <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
+                                        </div>
+                                    </td>
+                                    <th scope="row" class="p-0 text-center">{{ $product->id }}</th>
+                                    <td class="p-0 text-center">{{ $product->name }}</td>
+                                    <td class="p-0 text-center">{{ $product->slug  }}</td>
+                                    <td class="p-0 text-center">{{ $product->category->name }}</td>
+                                    <td class="p-0 text-center">{{ $product->description }}</td>
+                                    <td class="p-0 text-center">{{ $product->price }}/=</td>
+                                    <td class="p-0 text-center">
+                                        <div style="margin: 0 auto; width: 60px; overflow: hidden">
+                                            <img class="img-fluid" src="{{ asset('images/product/'. $product->image) }}"
+                                                alt="catImg">
+                                        </div>
+                                    </td>
+                                    <td class="p-0 text-center">
+                                        @if($product->status == 1) <span class="badge badge-success">Active</span>@else
+                                        <span class="badge badge-danger">Inactive</span> @endif
+                                    </td>
+                                    <td class="p-0 text-center">
+                                        <a class="btn btn-sm btn-warning btn-xs"
+                                            href="{{ route('product.edit', $product->id) }}"><i
+                                                class="fas fa-pen-square"></i></a>
+                                        <form action="{{ route('product.destroy', $product->id) }}" method="post"
+                                            style="display: inline-block">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button onclick="alert('Are You Sure to DELETE!')"
+                                                class="btn btn-sm btn-danger btn-xs"><i
+                                                    class="fas fa-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
                                 @else
-                                    <tr>
-                                        <td colspan="9" style="text-align: center; color: grey">No product found</td>
-                                    </tr>
+                                <tr>
+                                    <td colspan="9" style="text-align: center; color: grey">No product found</td>
+                                </tr>
                                 @endif
-                                </tbody>
                             </table>
+                            {{ $products->links()}}
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
+</div>
 @endsection

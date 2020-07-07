@@ -41,39 +41,39 @@
                                             <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
                                         </div>
                                     </th>
-                                    <th>ID</th>
-                                    <th>Brand Name</th>
-                                    <th>Slug</th>
-                                    <th>Description</th>
-                                    <th>Image</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th class="p-0 text-center">ID</th>
+                                    <th class="p-0 text-center">Brand Name</th>
+                                    <th class="p-0 text-center">Slug</th>
+                                    <th class="p-0 text-center">Description</th>
+                                    <th class="p-0 text-center">Image</th>
+                                    <th class="p-0 text-center">Status</th>
+                                    <th class="p-0 text-center">Action</th>
                                 </tr>
                                 @if($brands->count() > 0)
                                 @foreach($brands as $brand)
                                 <tr>
-                                    <td class="p-0 text-center">
+                                    <td>
                                         <div class="custom-checkbox custom-control">
                                             <input type="checkbox" data-checkboxes="mygroup"
                                                 class="custom-control-input" id="checkbox-1">
                                             <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
                                         </div>
                                     </td>
-                                    <th scope="row">{{ $brand->id }}</th>
-                                    <td>{{ $brand->name }}</td>
-                                    <td>{{ $brand->slug  }}</td>
-                                    <td>{{ $brand->description }}</td>
-                                    <td>
+                                    <th scope="row" class="p-0 text-center">{{ $brand->id }}</th>
+                                    <td class="p-0 text-center">{{ $brand->name }}</td>
+                                    <td class="p-0 text-center">{{ $brand->slug  }}</td>
+                                    <td class="p-0 text-center">{{ $brand->description }}</td>
+                                    <td class="p-0 text-center">
                                         <div style="margin: 0 auto; width: 60px; overflow: hidden">
                                             <img class="img-fluid" src="{{ asset('images/brand/'. $brand->image) }}"
                                                 alt="catImg">
                                         </div>
                                     </td>
-                                    <td>
+                                    <td class="p-0 text-center">
                                         @if($brand->status == 1) <span class="badge badge-success">Active</span>@else
                                         <span class="badge badge-danger">Inactive</span> @endif
                                     </td>
-                                    <td>
+                                    <td class="p-0 text-center">
                                         <a class="btn btn-sm btn-warning btn-xs"
                                             href="{{ route('brand.edit', $brand->id) }}"><i
                                                 class="fas fa-pen-square"></i></a>

@@ -915,8 +915,7 @@ select.form-control:not([size]):not([multiple]) {
 
 /* 3.6 Table */
 .table {
-  color: inherit;
-  overflow: hidden !important;}
+  color: inherit;}
   .table td, .table:not(.table-bordered) th {
     border-top: none; }
   .table:not(.table-sm):not(.table-md):not(.dataTable) td,

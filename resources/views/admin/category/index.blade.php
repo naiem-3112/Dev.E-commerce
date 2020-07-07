@@ -41,20 +41,20 @@
                                             <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
                                         </div>
                                     </th>
-                                    <th>ID</th>
-                                    <th>Category Name</th>
-                                    <th>Slug</th>
-                                    <th>Description</th>
-                                    <th>Category Position</th>
-                                    <th>Image</th>
-                                    <th>Featured</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th class="p-0 text-center">ID</th>
+                                    <th class="p-0 text-center">Category Name</th>
+                                    <th class="p-0 text-center">Slug</th>
+                                    <th class="p-0 text-center">Description</th>
+                                    <th class="p-0 text-center">Category Position</th>
+                                    <th class="p-0 text-center">Image</th>
+                                    <th class="p-0 text-center">Featured</th>
+                                    <th class="p-0 text-center">Status</th>
+                                    <th class="p-0 text-center">Action</th>
                                 </tr>
                                 @if($categories->count() > 0)
                                 @foreach($categories as $category)
                                 <tr>
-                                    <td class="p-0 text-center">
+                                    <td>
                                         <div class="custom-checkbox custom-control">
                                             <input type="checkbox" data-checkboxes="mygroup"
                                                 class="custom-control-input" id="checkbox-1">
