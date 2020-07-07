@@ -83,3 +83,17 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+## Error solution
+
+error-1: error: unable to resolve reference refs/remotes/origin/LT558-optimize-sql: No such file or directory
+From git+ssh://remoteserver/~/misk5
+
+run below command
+rm .git/refs/remotes/origin/master
+
+git fetch
+
+git branch --set-upstream-to=origin/master
