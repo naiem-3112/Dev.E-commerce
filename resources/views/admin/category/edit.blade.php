@@ -122,3 +122,11 @@
     </div>
 
 @endsection
+
+@push('base.js')
+<script>
+    $(document).ready(function(){
+        $('#description').summernote();
+    });
+</script>
+@endpush

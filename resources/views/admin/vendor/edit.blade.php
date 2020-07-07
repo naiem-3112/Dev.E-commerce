@@ -108,3 +108,11 @@
     </div>
 
 @endsection
+
+@push('base.js')
+<script>
+    $(document).ready(function(){
+        $(['#company_address', '#vendor_address']).summernote();
+    });
+</script>
+@endpush

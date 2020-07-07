@@ -102,3 +102,11 @@
     </div>
 
 @endsection
+
+@push('base.js')
+<script>
+    $(document).ready(function(){
+        $('#moto').summernote();
+    });
+</script>
+@endpush
