@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
     {{--    toastr--}}
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <!--summernote text editor-->
+    <link rel="stylesheet" href="{{ asset('summernote/summernote-bs4.min.css') }}">
     @stack('base.css')
 </head>
 
@@ -68,6 +70,8 @@
         })
 
     </script>
+    <!--summernote text editor-->
+    <script src="{{ asset('summernote/summernote-bs4.min.js') }}"></script>
     @stack('base.js')
 </body>
 
