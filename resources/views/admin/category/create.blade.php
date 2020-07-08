@@ -2,22 +2,13 @@
 @section('base.title', 'Create Category')
 @section('master.content')
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Create Category</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('category.index') }}">Category List</a>
-                        </li>
-                        <li class="breadcrumb-item active">Create Category</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+    <div class="section-header">
+        <h1>Create Category</h1>
+        <div class="section-header-breadcrumb">
+            <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
+            <div class="breadcrumb-item"><a href="{{ route('category.index') }}">Category List</a></div>
+            <div class="breadcrumb-item">Create Category</div>
+        </div>
     </div>
     <!-- /.content-header -->
 
@@ -27,10 +18,9 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Create Category</h3>
-                                <a href="{{ route('category.index') }}" class="btn btn-primary">All Category</a>
-                            </div>
+                            <h4>Create Category</h4>
+                            <a href="{{ route('category.index') }}" class="btn btn-icon btn-left btn-primary"><i
+                                    class="fas fa-plus"></i> All Category</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body p-0">

@@ -3,7 +3,7 @@
 @section('master.content')
 <!-- Content Header (Page header) -->
 <div class="section-header">
-    <h1>All Brands</h1>
+    <h1>All Categories</h1>
     <div class="section-header-breadcrumb">
         <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
         <div class="breadcrumb-item">Category</div>

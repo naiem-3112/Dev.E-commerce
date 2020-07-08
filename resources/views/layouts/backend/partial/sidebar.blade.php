@@ -33,7 +33,6 @@
                     <li><a class="nav-link" href="{{ route('subCategory.index')}}">List</a></li>
                 </ul>
             </li>
-            </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Brand</span></a>
@@ -42,20 +41,19 @@
                     <li><a class="nav-link" href="{{ route('brand.index')}}">List</a></li>
                 </ul>
             </li>
-            </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>Order</span></a>
+                    <span>Vendor</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('order.create')}}">Create</a></li>
-                    <li><a class="nav-link" href="{{ route('order.index')}}">List</a></li>
+                    <li><a class="nav-link" href="{{ route('vendor.create')}}">Create</a></li>
+                    <li><a class="nav-link" href="{{ route('vendor.index')}}">List</a></li>
                 </ul>
-            </li>
             </li>
         </ul>
 
         <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-            <a href="https://demo.getstisla.com/index.html" target="_blank" class="btn btn-primary btn-lg btn-block btn-icon-split">
+            <a href="https://demo.getstisla.com/index.html" target="_blank"
+                class="btn btn-primary btn-lg btn-block btn-icon-split">
                 <i class="fas fa-rocket"></i> Demo E-commerce
             </a>
         </div>

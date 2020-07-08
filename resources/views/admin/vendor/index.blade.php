@@ -1,86 +1,103 @@
 @extends('layouts.backend.master')
 @section('base.title', 'Vendor List')
 @section('master.content')
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Vendor List</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Vendor</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+<!-- Content Header (Page header) -->
+<div class="section-header">
+    <h1>All Vendors</h1>
+    <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
+        <div class="breadcrumb-item">Vendor</div>
     </div>
-    <!-- /.content-header -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Vendor List</h3>
-                                <a href="{{ route('vendor.create') }}" class="btn btn-primary">Create Vendor</a>
-                            </div>
+</div>
+<!-- /.content-header -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Vendor List</h4>
+                        <a href="{{ route('vendor.create') }}" class="btn btn-icon btn-left btn-primary"><i
+                                class="fas fa-plus"></i> Add New</a>
+                        <div class="card-header-form">
+                            <form>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="card-body p-0">
-                            <table style="text-align: center" class="table table-striped table-bordered table-hover">
-                                <thead>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Vendor Name</th>
-                                    <th>Slug</th>
-                                    <th>Email</th>
-                                    <th>Company Name</th>
-                                    <th>contact</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th>
+                                        <div class="custom-checkbox custom-control">
+                                            <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad"
+                                                class="custom-control-input" id="checkbox-all">
+                                            <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
+                                        </div>
+                                    </th>
+                                    <th class="p-0 text-center">ID</th>
+                                    <th class="p-0 text-center">Vendor Name</th>
+                                    <th class="p-0 text-center">Slug</th>
+                                    <th class="p-0 text-center">Email</th>
+                                    <th class="p-0 text-center">Company Name</th>
+                                    <th class="p-0 text-center">contact</th>
+                                    <th class="p-0 text-center">Status</th>
+                                    <th class="p-0 text-center">Action</th>
                                 </tr>
-                                </thead>
-                                <tbody>
                                 @if($vendors->count() > 0)
-                                    @foreach($vendors as $vendor)
-                                        <tr>
-                                            <th scope="row">{{ $vendor->id }}</th>
-                                            <td>{{ $vendor->name }}</td>
-                                            <td>{{ $vendor->slug  }}</td>
-                                            <td>{{ $vendor->email }}</td>
-                                            <td>{{ $vendor->company_name }}</td>
-                                            <td>{{ $vendor->contact }}</td>
-                                            <td>
-                                                @if($vendor->status == 1) <span class="badge badge-success">Active</span>@else
-                                                    <span class="badge badge-danger">Inactive</span> @endif
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-sm btn-warning btn-xs" href="{{ route('vendor.edit', $vendor->id) }}"><i class="fas fa-pen-square"></i></a>
-                                                <form action="{{ route('vendor.destroy', $vendor->id) }}" method="post" style="display: inline-block">
-                                                    @method('DELETE')
-                                                    @csrf
-                                                    <button onclick="alert('Are You Sure to DELETE!')" class="btn btn-sm btn-danger btn-xs"><i class="fas fa-trash"></i></button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                @foreach($vendors as $vendor)
+                                <tr>
+                                    <td>
+                                        <div class="custom-checkbox custom-control">
+                                            <input type="checkbox" data-checkboxes="mygroup"
+                                                class="custom-control-input" id="checkbox-1">
+                                            <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
+                                        </div>
+                                    </td>
+                                    <th scope="row" class="p-0 text-center">{{ $vendor->id }}</th>
+                                    <td class="p-0 text-center">{{ $vendor->name }}</td>
+                                    <td class="p-0 text-center">{{ $vendor->slug  }}</td>
+                                    <td class="p-0 text-center">{{ $vendor->email }}</td>
+                                    <td class="p-0 text-center">{{ $vendor->company_name }}</td>
+                                    <td class="p-0 text-center">{{ $vendor->contact }}</td>
+                                    <td class="p-0 text-center">
+                                        @if($vendor->status == 1) <span class="badge badge-success">Active</span>@else
+                                        <span class="badge badge-danger">Inactive</span> @endif
+                                    </td>
+                                    <td class="p-0 text-center">
+                                        <a class="btn btn-sm btn-warning btn-xs"
+                                            href="{{ route('vendor.edit', $vendor->id) }}"><i
+                                                class="fas fa-pen-square"></i></a>
+                                        <form action="{{ route('vendor.destroy', $vendor->id) }}" method="post"
+                                            style="display: inline-block">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button onclick="alert('Are You Sure to DELETE!')"
+                                                class="btn btn-sm btn-danger btn-xs"><i
+                                                    class="fas fa-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
                                 @else
-                                    <tr>
-                                        <td colspan="10" style="text-align: center; color: grey">No vendor found</td>
-                                    </tr>
+                                <tr>
+                                    <td colspan="10" style="text-align: center; color: grey">No vendor found</td>
+                                </tr>
                                 @endif
-                                </tbody>
                             </table>
+                            {{ $vendors->links()}}
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
+</div>
 
 @endsection
