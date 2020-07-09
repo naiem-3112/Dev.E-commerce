@@ -45,6 +45,9 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('sale', 'SaleController');
 
 //Settings
+    route::get('setting', function(){
+        return view('admin.setting');
+    })->name('admin.setting');
     Route::resource('setting/general', 'SettingGeneralController');
     Route::resource('setting/social', 'SettingSocialController');
 });

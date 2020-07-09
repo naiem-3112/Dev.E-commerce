@@ -2,22 +2,13 @@
 @section('base.title', 'Edit Vendor')
 @section('master.content')
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Edit Vendor</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('vendor.index') }}">Vendor List</a>
-                        </li>
-                        <li class="breadcrumb-item active">Edit Vendor</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+    <div class="section-header">
+        <h1>Edit Vendor</h1>
+        <div class="section-header-breadcrumb">
+            <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
+            <div class="breadcrumb-item"><a href="{{ route('vendor.index') }}">Vendor List</a></div>
+            <div class="breadcrumb-item">Edit Vendor</div>
+        </div>
     </div>
     <!-- /.content-header -->
 
@@ -27,10 +18,9 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Edit Vendor - {{ $vendor->name }}</h3>
-                                <a href="{{ route('vendor.index') }}" class="btn btn-primary">All Vendor</a>
-                            </div>
+                            <h4>Edit Vendor</h4>
+                        <a href="{{ route('vendor.index') }}" class="btn btn-icon btn-left btn-primary"><i
+                                class="fas fa-plus"></i> All Vendor</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body p-0">

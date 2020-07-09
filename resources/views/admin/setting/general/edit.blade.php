@@ -2,22 +2,13 @@
 @section('base.title', 'Edit General Setting')
 @section('master.content')
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Edit General Setting</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('general.index') }}">General Setting List</a>
-                        </li>
-                        <li class="breadcrumb-item active">Edit General Setting</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+    <div class="section-header">
+        <h1>Edit General Setting</h1>
+        <div class="section-header-breadcrumb">
+            <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
+            <div class="breadcrumb-item"><a href="{{ route('brand.index') }}"> General Setting List</a></div>
+            <div class="breadcrumb-item">Edit General Setting</div>
+        </div>
     </div>
     <!-- /.content-header -->
 
@@ -27,15 +18,15 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Edit General Setting - {{ $settingGeneral->name }}</h3>
-                                <a href="{{ route('general.index') }}" class="btn btn-primary">All General Setting</a>
-                            </div>
+                            <h4>Edit General Setting</h4>
+                        <a href="{{ route('general.index') }}" class="btn btn-icon btn-left btn-primary"><i
+                                class="fas fa-plus"></i> All General Setting</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body p-0">
                             <div class="col-12 col-lg-8 offset-lg-2 col-md-8 offset-md-2 ">
-                                <form action="{{ route('general.update', [$settingGeneral->id]) }}" method="post" enctype="multipart/form-data">
+                            
+                                <form action="{{ route('general.update', 1) }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="card-body">
