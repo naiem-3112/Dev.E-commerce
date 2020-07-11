@@ -7,7 +7,7 @@ class ProductSeeder extends Seeder
     public function run()
     {
         App\Product::create([
-            'category_id' => 1,
+            'category_id' => 2,
             'name' => 'mobile',
             'slug' => 'mobile',
             'description' => 'mobile is a good product',
@@ -39,7 +39,7 @@ class ProductSeeder extends Seeder
         ]);
 
         App\Product::create([
-            'category_id' => 6,
+            'category_id' => 5,
             'name' => 'chocolate',
             'slug' => 'chocolate',
             'description' => 'chocolate is a good product',
