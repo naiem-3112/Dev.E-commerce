@@ -7,6 +7,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
@@ -47,7 +48,8 @@ class ProductController extends Controller
         }
         $product->save();
 
-        Session::flash('success', 'product created successfully');
+        //Session::flash('success', 'product created successfully');
+        alert()->success('success','product created successfully');
 
         return redirect()->back();
     }
@@ -87,7 +89,9 @@ class ProductController extends Controller
         }
         $product->save();
 
-        Session::flash('success', 'product updated successfully');
+        //Session::flash('success', 'product updated successfully');
+        Alert::toast('product updated successfully', 'success');
+        // alert()->success('success','product updated successfully');
 
         return redirect()->route('product.index');
     }
@@ -97,7 +101,8 @@ class ProductController extends Controller
         if ($product) {
             $product->delete();
 
-            Session::flash('success', 'product deleted successfully');
+            //Session::flash('success', 'product deleted successfully');
+            alert()->success('success','product deleted successfully');
 
             return redirect()->route('product.index');
         }

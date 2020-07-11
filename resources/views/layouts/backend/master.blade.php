@@ -7,6 +7,7 @@
 
 <div class="main-content">
     <section class="section">
+        @include('sweetalert::alert')
         @yield('master.content')
     </section>
 </div>

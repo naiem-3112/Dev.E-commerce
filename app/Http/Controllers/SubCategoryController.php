@@ -7,6 +7,7 @@ use App\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SubCategoryController extends Controller
 {
@@ -49,7 +50,8 @@ class SubCategoryController extends Controller
         }
         $subCategory->save();
 
-        Session::flash('success', 'subCategory created successfully');
+        //Session::flash('success', 'subCategory created successfully');
+        alert()->success('success','subCategory created successfully');
 
         return redirect()->back();
     }
@@ -89,7 +91,8 @@ class SubCategoryController extends Controller
         }
         $subCategory->save();
 
-        Session::flash('success', 'subCategory updated successfully');
+        //Session::flash('success', 'subCategory updated successfully');
+        alert()->success('success','subCategory updated successfully');
 
         return redirect()->route('subCategory.index');
     }
@@ -99,7 +102,8 @@ class SubCategoryController extends Controller
         if ($subCategory) {
             $subCategory->delete();
 
-            Session::flash('success', 'subCategory deleted successfully');
+            //Session::flash('success', 'subCategory deleted successfully');
+            alert()->success('success','subCategory deleted successfully');
 
             return redirect()->route('subCategory.index');
         }

@@ -6,6 +6,7 @@ use App\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BrandController extends Controller
 {
@@ -41,8 +42,7 @@ class BrandController extends Controller
         }
         $brand->save();
 
-        Session::flash('success', 'brand created successfully');
-
+        alert()->success('success','brand created successfully');
         return redirect()->back();
     }
 
@@ -75,8 +75,8 @@ class BrandController extends Controller
         }
         $brand->save();
 
-        Session::flash('success', 'brand updated successfully');
-
+        //Session::flash('success', 'brand updated successfully');
+        alert()->success('success','brand updated successfully');
         return redirect()->route('brand.index');
     }
 
@@ -85,8 +85,8 @@ class BrandController extends Controller
         if ($brand) {
             $brand->delete();
 
-            Session::flash('success', 'brand deleted successfully');
-
+            //Session::flash('success', 'brand deleted successfully');
+            alert()->success('success','brand deleted successfully');
             return redirect()->route('brand.index');
         }
     }

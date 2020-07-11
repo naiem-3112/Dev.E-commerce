@@ -6,6 +6,7 @@ use App\Vendor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class VendorController extends Controller
 {
@@ -44,7 +45,8 @@ class VendorController extends Controller
         $vendor->status = $request->status;
         $vendor->save();
 
-        Session::flash('success', 'vendor created successfully');
+        //Session::flash('success', 'vendor created successfully');
+        alert()->success('success','vendor created successfully');
 
         return redirect()->back();
     }
@@ -81,7 +83,8 @@ class VendorController extends Controller
         $vendor->status = $request->status;
         $vendor->save();
 
-        Session::flash('success', 'vendor updated successfully');
+        //Session::flash('success', 'vendor updated successfully');
+        alert()->success('success','vendor updated successfully');
 
         return redirect()->route('vendor.index');
     }
@@ -91,7 +94,8 @@ class VendorController extends Controller
         if ($vendor) {
             $vendor->delete();
 
-            Session::flash('success', 'vendor deleted successfully');
+            //Session::flash('success', 'vendor deleted successfully');
+            alert()->success('success','vendor deleted successfully');
 
             return redirect()->route('vendor.index');
         }
