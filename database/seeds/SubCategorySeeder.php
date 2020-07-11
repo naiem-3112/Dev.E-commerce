@@ -15,7 +15,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => 1,
             'name' => 'blander',
             'slug' => 'blander',
-            'description' => 'blander is a good category',
+            'description' => 'blander is a good sub-category',
             'position_id' => 7,
         ]);
 
@@ -23,7 +23,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => 2,
             'name' => 'apple',
             'slug' => 'apple',
-            'description' => 'apple is a good category',
+            'description' => 'apple is a good sub-category',
             'position_id' => 6,
         ]);
 
@@ -31,7 +31,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => 3,
             'name' => 'shirt',
             'slug' => 'shirt',
-            'description' => 'shirt is a good category',
+            'description' => 'shirt is a good sub-category',
             'position_id' => 3,
         ]);
 
@@ -39,7 +39,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => 4,
             'name' => 'pen',
             'slug' => 'pen',
-            'description' => 'pen is a good category',
+            'description' => 'pen is a good sub-category',
             'position_id' => 2,
         ]);
 
@@ -47,7 +47,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => 5,
             'name' => 'pencil',
             'slug' => 'pencil',
-            'description' => 'pencil is a good category',
+            'description' => 'pencil is a good sub-category',
             'position_id' => 4,
         ]);
     }
