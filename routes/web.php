@@ -42,10 +42,13 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('order', 'OrderController');
 
 //Sale
-    Route::resource('sale', 'SaleController');
+Route::resource('sale', 'SaleController');
 
 //Cart
     Route::resource('cart', 'CartController');
+
+//Currency
+    Route::resource('currency', 'CurrencyController');
 
 //Settings
     route::get('setting', function(){

@@ -16,9 +16,9 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('language_id')->nullable();
-            $table->foreign('language_id')->references('id')->on('language');
+            $table->foreign('language_id')->references('id')->on('languages');
             $table->unsignedInteger('currency_id')->nullable();;
-            $table->foreign('currency_id')->references('id')->on('currency');
+            $table->foreign('currency_id')->references('id')->on('currencies');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('image')->nullable();

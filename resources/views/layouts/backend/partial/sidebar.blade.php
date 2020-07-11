@@ -9,45 +9,23 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Modules</li>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>Product</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('product.create')}}">Create</a></li>
-                    <li><a class="nav-link" href="{{ route('product.index')}}">List</a></li>
-                </ul>
+            <li class="nav-item">
+                <a href="{{ route('product.index')}}"><i class="fab fa-product-hunt"></i>Product</a>
             </li>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>Category</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('category.create')}}">Create</a></li>
-                    <li><a class="nav-link" href="{{ route('category.index')}}">List</a></li>
-                </ul>
+            <li class="nav-item">
+                <a href="{{ route('category.index')}}"><i class="fas fa-columns"></i>Category</a>
             </li>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>Sub Category</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('subCategory.create')}}">Create</a></li>
-                    <li><a class="nav-link" href="{{ route('subCategory.index')}}">List</a></li>
-                </ul>
+            <li class="nav-item">
+                <a href="{{ route('subCategory.index')}}"><i class="fas fa-columns"></i>Sub Category</a>
             </li>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>Brand</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('brand.create')}}">Create</a></li>
-                    <li><a class="nav-link" href="{{ route('brand.index')}}">List</a></li>
-                </ul>
+            <li class="nav-item">
+                <a href="{{ route('brand.index')}}"><i class="fas fa-columns"></i>Brand</a>
             </li>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>Vendor</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('vendor.create')}}">Create</a></li>
-                    <li><a class="nav-link" href="{{ route('vendor.index')}}">List</a></li>
-                </ul>
+            <li class="nav-item">
+                <a href="{{ route('vendor.index')}}"><i class="fas fa-columns"></i>Vendor</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('currency.index')}}"><i class="fas fa-money-bill-alt"></i>Currency</a>
             </li>
         </ul>
 
