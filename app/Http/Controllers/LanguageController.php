@@ -30,6 +30,8 @@ class LanguageController extends Controller
         $language = new Language();
         $language->name = $request->name;
         $language->code = $request->code;
+        $language->native = $request->native;
+        $language->rtl = $request->rtl;
         $language->status = $request->status;
 
         $language->save();
@@ -59,6 +61,8 @@ class LanguageController extends Controller
 
         $language->name = $request->name;
         $language->code = $request->code;
+        $language->native = $request->native;
+        $language->rtl = $request->rtl;
         $language->status = $request->status;
 
         $language->save();

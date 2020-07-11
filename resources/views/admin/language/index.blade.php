@@ -44,6 +44,8 @@
                                     <th class="p-0 text-center">ID</th>
                                     <th class="p-0 text-center">Language Name</th>
                                     <th class="p-0 text-center">Code</th>
+                                    <th class="p-0 text-center">Native</th>
+                                    <th class="p-0 text-center">RTL</th>
                                     <th class="p-0 text-center">Status</th>
                                     <th class="p-0 text-center">Action</th>
                                 </tr>
@@ -60,6 +62,8 @@
                                     <th scope="row" class="p-0 text-center">{{ $language->id }}</th>
                                     <td class="p-0 text-center">{{ $language->name }}</td>
                                     <td class="p-0 text-center">{{ $language->code  }}</td>
+                                    <td class="p-0 text-center">{{ $language->native  }}</td>
+                                    <td class="p-0 text-center">{{ $language->rtl  }}</td>
 
                                     <td class="p-0 text-center">
                                         @if($language->status == 1) <span class="badge badge-success">Active</span>@else

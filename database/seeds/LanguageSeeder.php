@@ -12,13 +12,17 @@ class LanguageSeeder extends Seeder
     public function run()
     {
         App\Language::create([
-            'name' => 'Bangla',
             'code' => 'BN',
+            'name' => 'Bangla',
+            'native' => 'Bangla',
+            'rtl' => '0',
         ]);
         
         App\Language::create([
-            'name' => 'English',
             'code' => 'EN',
+            'name' => 'English',
+            'native' => 'English',
+            'rtl' => '0',
         ]);
     }
 }

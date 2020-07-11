@@ -47,6 +47,22 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
+                                        <label for="native">Native</label>
+                                        <input type="text" class="form-control" name="native" id="native"
+                                            value="{{ $language->native }}">
+                                        @error('native')
+                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rtl">RTL</label>
+                                        <input type="number" class="form-control" name="rtl" id="rtl"
+                                            value="{{ $language->rtl }}">
+                                        @error('rtl')
+                                        <div class="alert alert-danger mt-2 mb-2">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
                                         <label for="status">Status</label>
                                         <select class="form-control" name="status" id="status">
                                             <option style="display: none" value="{{ $language->status }}" selected>
