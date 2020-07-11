@@ -27,6 +27,9 @@
             <li class="nav-item">
                 <a href="{{ route('currency.index')}}"><i class="fas fa-money-bill-alt"></i>Currency</a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('language.index')}}"><i class="fas fa-money-bill-alt"></i>Language</a>
+            </li>
         </ul>
 
         <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

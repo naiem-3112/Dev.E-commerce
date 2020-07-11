@@ -50,6 +50,9 @@ Route::resource('sale', 'SaleController');
 //Currency
     Route::resource('currency', 'CurrencyController');
 
+//Language
+Route::resource('language', 'LanguageController');
+
 //Settings
     route::get('setting', function(){
         return view('admin.setting');
