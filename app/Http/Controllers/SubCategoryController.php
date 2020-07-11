@@ -50,8 +50,7 @@ class SubCategoryController extends Controller
         }
         $subCategory->save();
 
-        //Session::flash('success', 'subCategory created successfully');
-        alert()->success('success','subCategory created successfully');
+        Alert::toast('sub-category inserted successfully', 'success');
 
         return redirect()->back();
     }
@@ -91,8 +90,7 @@ class SubCategoryController extends Controller
         }
         $subCategory->save();
 
-        //Session::flash('success', 'subCategory updated successfully');
-        alert()->success('success','subCategory updated successfully');
+        Alert::toast('sub-category updated successfully', 'success');
 
         return redirect()->route('subCategory.index');
     }
@@ -102,8 +100,7 @@ class SubCategoryController extends Controller
         if ($subCategory) {
             $subCategory->delete();
 
-            //Session::flash('success', 'subCategory deleted successfully');
-            alert()->success('success','subCategory deleted successfully');
+            Alert::toast('sub-category deleted successfully', 'success');
 
             return redirect()->route('subCategory.index');
         }

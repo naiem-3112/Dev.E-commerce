@@ -48,8 +48,7 @@ class ProductController extends Controller
         }
         $product->save();
 
-        //Session::flash('success', 'product created successfully');
-        alert()->success('success','product created successfully');
+        Alert::toast('product inserted successfully', 'success');
 
         return redirect()->back();
     }
@@ -91,7 +90,6 @@ class ProductController extends Controller
 
         //Session::flash('success', 'product updated successfully');
         Alert::toast('product updated successfully', 'success');
-        // alert()->success('success','product updated successfully');
 
         return redirect()->route('product.index');
     }
@@ -102,7 +100,7 @@ class ProductController extends Controller
             $product->delete();
 
             //Session::flash('success', 'product deleted successfully');
-            alert()->success('success','product deleted successfully');
+            Alert::toast('product deleted successfully', 'success');
 
             return redirect()->route('product.index');
         }

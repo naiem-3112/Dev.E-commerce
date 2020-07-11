@@ -45,8 +45,7 @@ class VendorController extends Controller
         $vendor->status = $request->status;
         $vendor->save();
 
-        //Session::flash('success', 'vendor created successfully');
-        alert()->success('success','vendor created successfully');
+        Alert::toast('vendor inserted successfully', 'success');
 
         return redirect()->back();
     }
@@ -83,8 +82,7 @@ class VendorController extends Controller
         $vendor->status = $request->status;
         $vendor->save();
 
-        //Session::flash('success', 'vendor updated successfully');
-        alert()->success('success','vendor updated successfully');
+        Alert::toast('vendor updated successfully', 'success');
 
         return redirect()->route('vendor.index');
     }
@@ -94,8 +92,7 @@ class VendorController extends Controller
         if ($vendor) {
             $vendor->delete();
 
-            //Session::flash('success', 'vendor deleted successfully');
-            alert()->success('success','vendor deleted successfully');
+            Alert::toast('vendor deleted successfully', 'success');
 
             return redirect()->route('vendor.index');
         }

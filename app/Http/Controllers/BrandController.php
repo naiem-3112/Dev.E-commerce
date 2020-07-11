@@ -42,7 +42,7 @@ class BrandController extends Controller
         }
         $brand->save();
 
-        alert()->success('success','brand created successfully');
+        Alert::toast('brand inserted successfully', 'success');
         return redirect()->back();
     }
 
@@ -76,7 +76,7 @@ class BrandController extends Controller
         $brand->save();
 
         //Session::flash('success', 'brand updated successfully');
-        alert()->success('success','brand updated successfully');
+        Alert::toast('brand updated successfully', 'success');
         return redirect()->route('brand.index');
     }
 
@@ -86,7 +86,7 @@ class BrandController extends Controller
             $brand->delete();
 
             //Session::flash('success', 'brand deleted successfully');
-            alert()->success('success','brand deleted successfully');
+            Alert::toast('brand deleted successfully', 'success');
             return redirect()->route('brand.index');
         }
     }

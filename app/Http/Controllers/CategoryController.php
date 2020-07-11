@@ -46,8 +46,7 @@ class CategoryController extends Controller
         }
         $category->save();
 
-        //Session::flash('success', 'category created successfully');
-        alert()->success('success','category created successfully');
+        Alert::toast('category inserted successfully', 'success');
 
         return redirect()->back();
     }
@@ -85,8 +84,7 @@ class CategoryController extends Controller
         }
         $category->save();
 
-        //Session::flash('success', 'category updated successfully');
-        alert()->success('success','category updated successfully');
+        Alert::toast('category updated successfully', 'success');
 
         return redirect()->route('category.index');
     }
@@ -96,8 +94,7 @@ class CategoryController extends Controller
         if ($category) {
             $category->delete();
 
-            //Session::flash('success', 'category deleted successfully');
-            alert()->success('success','category deleted successfully');
+            Alert::toast('category deleted successfully', 'success');
 
             return redirect()->route('category.index');
         }
