@@ -10,6 +10,7 @@ Auth::routes(['verify' => true]);
 
 //Admin Routes
 Route::prefix('admin')->middleware(['auth'])->group(function () {
+    
 //Admin Dashboard
     Route::get('dashboard', function () {
         return view('admin.dashboard');
@@ -60,4 +61,3 @@ Route::resource('language', 'LanguageController');
     Route::resource('setting/general', 'SettingGeneralController');
     Route::resource('setting/social', 'SettingSocialController');
 });
-
