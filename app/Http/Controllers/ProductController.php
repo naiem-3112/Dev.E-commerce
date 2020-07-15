@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Session;
 use RealRashid\SweetAlert\Facades\Alert;
+use Image;
 
 class ProductController extends Controller
 {
@@ -29,6 +30,7 @@ class ProductController extends Controller
             'name' => 'required|unique:products,name',
             'description' => 'required',
             'status' => 'required',
+            'image' => 'image|sometimes|nullable|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $product = new Product();
@@ -41,9 +43,11 @@ class ProductController extends Controller
         $product->price = $request->price;
 
         if ($request->hasFile('image')) {
-            $image = $request->image;
-            $uniqueImageName = time() . '.' . $image->extension();
-            $image->move(public_path('images/product'), $uniqueImageName);
+            $originalName = $request->image->getClientOriginalName();
+            $uniqueImageName = time().$originalName;
+            $image = Image::make($request->image);
+            $image->resize(1430,469.22);
+            $image->save(public_path().'/images/product/'.$uniqueImageName);
             $product->image = $uniqueImageName;
         }
         $product->save();
