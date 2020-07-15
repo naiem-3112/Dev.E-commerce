@@ -57,21 +57,36 @@ img{
 .topbar-left{
 	font-size: 13px;
 }
-.topbar-right ul li {
-	display: inline-block
-}
-.topbar-right ul li a{
-	display: block;
+
+.topbar-right .menu a{
+	display: inline-block;
 	color: #fff;
-	padding: 0 12px;
+	padding: 0 20px;
 	font-size: 12px;
 	border-right: 1px solid #fff;
 	font-weight: 800;
+	background: none;
+}
+.topbar-right .menu li ul{
+    left: 20%;
+    top: 100%;    
+}
+.topbar-right .menu li li a{
+    background-color: #fff;
+    color: #2c3e50;
+    padding: 10px 20px;
+    font-family: fantasy;
+    font-size: 12px;
+	text-transform: uppercase;
+}
+.topbar-right .menu span{
+    padding: 0 5px;
 }
 
-.topbar-right ul li:last-child a{
-	border-right: none
+.topbar-right a:last-child{
+	border-right: none;
 }
+
 /*Start of SearchBar*/
 .searchBar{
 	background: #0090F0;
@@ -298,6 +313,41 @@ img{
 	margin-top: -10px;
 	margin-left: 50px;
 }
+
+/*Mixitup*/
+.work-top button{
+	display: inline-block;
+	background: #0069D9;
+	box-sizing: border-box;
+	padding: 10px 20px;
+	color: #fff;
+	font-weight: 600;
+	text-transform: capitalize;
+	cursor: pointer;
+	margin-right: 20px;
+	transition: 0.5s;
+	opacity: 1;
+	border: 1px solid transparent;
+	border-radius: 25px;
+}
+.work-top .mixitup-control-active{
+	background: #c0392b;
+	color: #fff;
+	border: 1px solid #fff; 
+}
+.work-top button:hover{
+	background: #fff;
+	color: #2c3e50;
+	box-sizing: border-box;
+	border: 1px solid #2c3e50;
+}
+.work-top button:focus{
+	outline: 0
+}
+/* .work-bottom{
+	padding-left: 120px;
+} */
+/*End of mixitup*/
 
 /*best seller*/
 .selling-item{
@@ -640,3 +690,89 @@ img{
 	color: #2c3e50;
 }
 /*end of logi npage*/
+
+/*Login*/
+.login-register-page{
+	padding: 40px 0;
+}
+.login-register{
+	margin: auto;
+}
+.login-register h4{
+	font-weight: 800;
+	font-size: 25px;
+	color: #2c3e50;
+	text-transform: capitalize;
+	display: inline-block;
+}
+.login-register h4:hover{
+	color: #4FB68D;
+}
+
+.login-register span{
+	padding: 0 20px;
+}
+.login-area{
+	position: absolute;
+	top: 108%;
+	left: 39%
+}
+.login-form-container{
+	width: 600px;
+	background: transparent none repeat scroll 0 0;
+    -webkit-box-shadow: 0 0 6px rgba(0,0,0,.1);
+    box-shadow: 0 0 6px rgba(0,0,0,.1);
+    padding: 80px;
+    text-align: left;
+}
+.login-register-form form input{
+	background-color: transparent;
+    border: 1px solid #ebebeb;
+    color: #666;
+    font-size: 14px;
+    height: 45px;
+    margin-bottom: 30px;
+    padding: 0 15px;
+    width: 100%;
+    outline: 0;
+}
+.login-toggle-btn a{
+	color: #2c3e50;
+	transition: 0.5s
+
+}
+.login-toggle-btn a:hover{
+	color: #4FB68D;
+	text-decoration: none;
+}
+.login-register-form form .button-box button {
+    background-color: #f2f2f2;
+    border: medium none;
+    color: #2c3e50;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 11px 30px;
+    text-transform: uppercase;
+    -webkit-transition: all .3s ease 0s;
+    -o-transition: all .3s ease 0s;
+    transition: all .3s ease 0s;
+    outline: 0;
+    border-radius: 30px;
+}
+.login-register-form form .button-box button:hover{
+	color: #fff;
+	background: #4FB68D;
+}
+
+.nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
+	background: #fff !important;
+	}
+	.search_box:focus{
+		outline: 0
+	}
+/* .login-register span{
+	padding: 0 20px;
+} */
+/*Register*/

@@ -65,7 +65,8 @@ nextArrow: '<i class="fas fa-angle-right slidernxt"></i>',
         
     })
     
-    
+    var mixer = mixitup('.work-bottom');
+
     
 });
 $(document).ready(function() {
