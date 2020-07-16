@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Session;
 use RealRashid\SweetAlert\Facades\Alert;
+use Image;
+use File;
 
 class CategoryController extends Controller
 {
@@ -39,9 +41,11 @@ class CategoryController extends Controller
         $category->status = $request->status;
 
         if ($request->hasFile('image')) {
-            $image = $request->image;
-            $uniqueImageName = time() . '.' . $image->extension();
-            $image->move(public_path('images/category'), $uniqueImageName);
+            $originalName = $request->image->getClientOriginalName();
+            $uniqueImageName = time().$originalName;
+            $image = Image::make($request->image);
+            // $image->resize(1430,469.22);
+            $image->save(public_path().'/images/category/'.$uniqueImageName);
             $category->image = $uniqueImageName;
         }
         $category->save();
@@ -77,11 +81,18 @@ class CategoryController extends Controller
         $category->status = $request->status;
 
         if ($request->hasFile('image')) {
-            $image = $request->image;
-            $uniqueImageName = time() . '.' . $image->extension();
-            $image->move(public_path('images/category'), $uniqueImageName);
+            $image_path = public_path("images/category/".$category->image);
+            if($image_path) {
+                File::delete($image_path);
+            }
+            $originalName = $request->image->getClientOriginalName();
+            $uniqueImageName = time().$originalName;
+            $image = Image::make($request->image);
+            // $image->resize(1430,469.22);
+            $image->save(public_path().'/images/category/'.$uniqueImageName);
             $category->image = $uniqueImageName;
         }
+        
         $category->save();
 
         Alert::toast('category updated successfully', 'success');
@@ -92,6 +103,10 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         if ($category) {
+            $image_path = public_path("images/category/".$category->image);
+            if($image_path) {
+                File::delete($image_path);
+            }
             $category->delete();
 
             Alert::toast('category deleted successfully', 'success');

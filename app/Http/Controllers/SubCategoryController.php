@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Session;
 use RealRashid\SweetAlert\Facades\Alert;
+use Image;
+use File;
 
 class SubCategoryController extends Controller
 {
@@ -41,12 +43,13 @@ class SubCategoryController extends Controller
         $subCategory->position_id = $request->position_id;
         $subCategory->featured = $request->featured;
         $subCategory->status = $request->status;
-
         if ($request->hasFile('image')) {
-            $image = $request->image;
-            $uniqueImageName = time() . '.' . $image->extension();
-            $image->move(public_path('images/subCategory'), $uniqueImageName);
-            $subCategory->image = $uniqueImageName;
+            $originalName = $request->image->getClientOriginalName();
+            $uniqueImageName = time().$originalName;
+            $image = Image::make($request->image);
+            // $image->resize(1430,469.22);
+            $image->save(public_path().'/images/subCategory/'.$uniqueImageName);
+            $product->image = $uniqueImageName;
         }
         $subCategory->save();
 
@@ -83,9 +86,15 @@ class SubCategoryController extends Controller
         $subCategory->status = $request->status;
 
         if ($request->hasFile('image')) {
-            $image = $request->image;
-            $uniqueImageName = time() . '.' . $image->extension();
-            $image->move(public_path('images/subCategory'), $uniqueImageName);
+            $image_path = public_path("images/subCategory/".$subCategory->image);
+            if($image_path) {
+                File::delete($image_path);
+            }
+            $originalName = $request->image->getClientOriginalName();
+            $uniqueImageName = time().$originalName;
+            $image = Image::make($request->image);
+            // $image->resize(1430,469.22);
+            $image->save(public_path().'/images/subCategory/'.$uniqueImageName);
             $subCategory->image = $uniqueImageName;
         }
         $subCategory->save();
@@ -98,6 +107,10 @@ class SubCategoryController extends Controller
     public function destroy(SubCategory $subCategory)
     {
         if ($subCategory) {
+            $image_path = public_path("images/subCategory/".$subCategory->image);
+            if($image_path) {
+                File::delete($image_path);
+            }
             $subCategory->delete();
 
             Alert::toast('sub-category deleted successfully', 'success');

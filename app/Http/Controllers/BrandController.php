@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Session;
 use RealRashid\SweetAlert\Facades\Alert;
+use Image;
+use File;
 
 class BrandController extends Controller
 {
@@ -33,12 +35,13 @@ class BrandController extends Controller
         $brand->slug = Str::slug($request->name, '-');
         $brand->description = $request->description;
         $brand->status = $request->status;
-
         if ($request->hasFile('image')) {
-            $image = $request->image;
-            $uniqueImageName = time() . '.' . $image->extension();
-            $image->move(public_path('images/brand'), $uniqueImageName);
-            $brand->image = $uniqueImageName;
+            $originalName = $request->image->getClientOriginalName();
+            $uniqueImageName = time().$originalName;
+            $image = Image::make($request->image);
+            // $image->resize(1430,469.22);
+            $image->save(public_path().'/images/brand/'.$uniqueImageName);
+            $product->image = $uniqueImageName;
         }
         $brand->save();
 
@@ -68,9 +71,15 @@ class BrandController extends Controller
         $brand->status = $request->status;
 
         if ($request->hasFile('image')) {
-            $image = $request->image;
-            $uniqueImageName = time() . '.' . $image->extension();
-            $image->move(public_path('images/brand'), $uniqueImageName);
+            $image_path = public_path("images/brand/".$brand->image);
+            if($image_path) {
+                File::delete($image_path);
+            }
+            $originalName = $request->image->getClientOriginalName();
+            $uniqueImageName = time().$originalName;
+            $image = Image::make($request->image);
+            // $image->resize(1430,469.22);
+            $image->save(public_path().'/images/brand/'.$uniqueImageName);
             $brand->image = $uniqueImageName;
         }
         $brand->save();
@@ -83,6 +92,10 @@ class BrandController extends Controller
     public function destroy(Brand $brand)
     {
         if ($brand) {
+            $image_path = public_path("images/brand/".$brand->image);
+            if($image_path) {
+                File::delete($image_path);
+            }
             $brand->delete();
 
             //Session::flash('success', 'brand deleted successfully');
