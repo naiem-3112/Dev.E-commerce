@@ -58,6 +58,11 @@ Route::resource('language', 'LanguageController');
     route::get('setting', function(){
         return view('admin.setting');
     })->name('admin.setting');
+
+    route::get('reset-password', function(){
+        return view('admin.password.email');
+    })->name('admin.reset-password');
+
     Route::resource('setting/general', 'SettingGeneralController');
     Route::resource('setting/social', 'SettingSocialController');
 });

@@ -216,13 +216,17 @@
     <div class="container">
         <div class="work-top text-center pt-4 pb-4">
             <button type="button" data-filter="all">All</button>
-            <button type="button" data-filter=".watch">Watch</button>
+            @foreach($categories as $category)
+            <button type="button" data-filter=".{{ $category->name }}">{{ $category->name }}</button>
+            @endforeach
             <button type="button" data-filter=".tv">Telivision</button>
-            <button type="button" data-filter=".camera">Camera</button>
+            <button type="button" data-filter="camera">Camera</button>
         </div>
 
             <div class="row work-bottom">
-                <div class="hot_deals mix watch tv">
+            @foreach($categories as $category)
+                
+                <div class="hot_deals mix {{ $category->name }}">
                 <div class="hot_deals_image">
                     <img src="{{asset('front_template/images/hot_deal_1-1.jpg')}}" class="img-fluid" alt="">
                 </div>
@@ -243,51 +247,7 @@
                     <p>Hurry Up Offers Ends in: <span>2h:30h:15s</span></p>
                 </div>
              </div>
-
-            <div class="hot_deals mix watch camera">
-                <div class="hot_deals_image">
-                    <img src="{{asset('front_template/images/hot_deal_1-1.jpg')}}" alt="">
-                </div>
-                    <div class="search_icon">
-                        <a href="" class="search_button"><i class="fas fa-search"></i></a>
-
-                        <a href="" class="addtocart">add to cart</a>
-                        <a href="#"><i class="fas fa-balance-scale-right"></i></a>
-                        <a href="#"><i class="far fa-bookmark"></i></a>
-                    </div>
-                <div class="hot_deals_txt">
-                    <p>Product Type</p>
-                    <h1>Product Name</h1>
-                    <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                    <i class="far fa-star"></i><i class="far fa-star"></i>
-                    <p class="price"><del><span>$20</span></del><span> 34.21</span><span class="discount"> 5%</span></p>
-                    <p>Availablity: <span>300 in stock</span></p>
-                    <p>Hurry Up Offers Ends in: <span>2h:30h:15s</span></p>
-                </div>
-            </div>
-            <div class="hot_deals mix watch camera">
-                <div class="hot_deals_image">
-                    <img src="{{asset('front_template/images/hot_deal_1-1.jpg')}}" alt="">
-                </div>
-                    <div class="search_icon">
-                        <a href="" class="search_button"><i class="fas fa-search"></i></a>
-
-                        <a href="" class="addtocart">add to cart</a>
-                        <a href="#"><i class="fas fa-balance-scale-right"></i></a>
-                        <a href="#"><i class="far fa-bookmark"></i></a>
-                    </div>
-                <div class="hot_deals_txt">
-                    <p>Product Type</p>
-                    <h1>Product Name</h1>
-                    <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                    <i class="far fa-star"></i><i class="far fa-star"></i>
-                    <p class="price"><del><span>$20</span></del><span> 34.21</span><span class="discount"> 5%</span></p>
-                    <p>Availablity: <span>300 in stock</span></p>
-                    <p>Hurry Up Offers Ends in: <span>2h:30h:15s</span></p>
-                </div>
-            </div>
-            </div>
-          
+             @endforeach
             </div>
     </div>
 </div>

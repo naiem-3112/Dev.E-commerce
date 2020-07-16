@@ -29,9 +29,9 @@
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="card-body">
-                    <h4>SEO</h4>
+                    <h4>Password Reset</h4>
                     <p>Search engine optimization settings, such as meta tags and social media.</p>
-                    <a href="features-setting-detail.html" class="card-cta">Change Setting <i
+                    <a href="{{ route('admin.reset-password') }}" class="card-cta">Change Setting <i
                             class="fas fa-chevron-right"></i></a>
                 </div>
             </div>

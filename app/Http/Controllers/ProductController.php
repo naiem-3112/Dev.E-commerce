@@ -105,8 +105,17 @@ class ProductController extends Controller
         return redirect()->route('product.index');
     }
 
+    
+
     public function destroy(Product $product)
     {
+
+        if(Hash::check($request->old, $user->password)){
+            
+        }
+        
+
+
         if ($product) {
             $image_path = public_path("images/product/".$product->image);
             if($image_path) {
