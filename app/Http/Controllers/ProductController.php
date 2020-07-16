@@ -42,13 +42,15 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->status = $request->status;
         $product->price = $request->price;
-
+       
         if ($request->hasFile('image')) {
             $originalName = $request->image->getClientOriginalName();
             $uniqueImageName = time().$originalName;
             $image = Image::make($request->image);
             $image->resize(1430,469.22);
             $image->save(public_path().'/images/product/'.$uniqueImageName);
+            $image->resize(280, 280);
+            $image->save(public_path().'/images/product/thumbnail/'.$uniqueImageName);
             $product->image = $uniqueImageName;
         }
         $product->save();
@@ -95,6 +97,8 @@ class ProductController extends Controller
             $image = Image::make($request->image);
             $image->resize(1430,469.22);
             $image->save(public_path().'/images/product/'.$uniqueImageName);
+            $image->resize(280, 280);
+            $image->save(public_path().'/images/product/thumbnail/'.$uniqueImageName);
             $product->image = $uniqueImageName;
         }
         $product->save();
@@ -110,16 +114,17 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
 
-        if(Hash::check($request->old, $user->password)){
+        // if(Hash::check($request->old, $user->password)){
             
-        }
+        // }
         
 
 
         if ($product) {
             $image_path = public_path("images/product/".$product->image);
+            $thumbnail_path = public_path("images/product/thumbnail/".$product->image);
             if($image_path) {
-                File::delete($image_path);
+                File::delete($image_path, $thumbnail_path);
             }
             $product->delete();
 
