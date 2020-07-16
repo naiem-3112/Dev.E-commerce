@@ -2,6 +2,7 @@
 *{
 	padding: 0;
 	margin: 0;
+	font-family: 'Roboto', sans-serif;
 }
 
 ul,ol{
@@ -25,7 +26,7 @@ img{
 .topbtn{
     padding: 10px;
     border-style: none;
-    background-color: #0090F0;
+    background-color: #05386B;
     color: #fff;
     font-style: italic;
     font-weight: bold;
@@ -49,10 +50,11 @@ img{
 /*End of Basic CSS*/
 
 /*Topbar*/
+
 .topbar{
-	background: #0090F0;
-	font-weight: 800;
-	border-bottom: 1px solid rgba(255,255,255,.1);
+	background: #EDF5E1;
+	font-weight: 700;
+	border-bottom: 1px solid #05386B;
 }
 .topbar-left{
 	font-size: 13px;
@@ -60,10 +62,10 @@ img{
 
 .topbar-right .menu a{
 	display: inline-block;
-	color: #fff;
+	color: #05386B;
 	padding: 0 20px;
 	font-size: 12px;
-	border-right: 1px solid #fff;
+	border-right: 1px solid #05386B;
 	font-weight: 800;
 	background: none;
 }
@@ -72,10 +74,9 @@ img{
     top: 100%;    
 }
 .topbar-right .menu li li a{
-    background-color: #fff;
-    color: #2c3e50;
+    background-color: #EDF5E1;
+    color: #05386B;
     padding: 10px 20px;
-    font-family: fantasy;
     font-size: 12px;
 	text-transform: uppercase;
 }
@@ -89,7 +90,7 @@ img{
 
 /*Start of SearchBar*/
 .searchBar{
-	background: #0090F0;
+	background: #EDF5E1;
 	position: relative;
 }
 
@@ -105,8 +106,8 @@ img{
 
 .search_btn{
 	height: 45px;
-	background: #2c3e50;
-	color: #fff;
+	background: #05386B;
+	color: #EDF5E1;
 	width: 60px;
 	border:0;
 	margin-left: -5px;
@@ -128,13 +129,13 @@ img{
 }
 .searchbar-right ul li a{
 	display: block;
-	color: #fff;
+	color: #05386B;
 	padding: 0 12px;
 	font-size: 15px;
 	box-sizing: border-box;
 }
 .searchbar-right span{
-	font-weight: 800;
+	font-weight: 700;
 }
 .searchbar-right i{
 	font-size: 35px;
@@ -143,17 +144,26 @@ img{
 	position: relative;
 }
 .searchbar-right p{
-	font-weight: 800;
+	font-weight: 700;
 	display: inline-block;
 	padding: 0 10px;
 	margin-left: -15px;
 	margin-top: -10px;
 	position: absolute;
 }
+/* .k{
+	color:#05386B;
+	color: #379683;
+	color: #5CDB95;
+	color: #8EE4AF;
+	color: #EDF5E1;
+} */
+
+
 .count{
 	border-radius: 50%;
-	background: #f1c40f;
-	color: #2c3e50;
+	background: #5CDB95;
+	color: #05386B;
 }
 /*End of SearchBar*/
 /*Navbar*/

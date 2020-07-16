@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Dev Ecommerce</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('front_template/images/favicon.png')}}" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800&display=swap"
         rel="stylesheet" />
+
     <link rel="stylesheet" href="{{asset('front_template/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('front_template/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('front_template/css/all.min.css')}}">
@@ -24,19 +26,33 @@
     <div class="container-fluid pt-2 pb-2 topbar">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-lg-3 text-left text-white topbar-left">
+                <div class="col-6 text-left text-white">
                     {{ $settingGeneral->welcome_msg }}
                 </div>
-                <div class="col-md-9 col-lg-9 text-right text-white topbar-right">
-                    <ul>
-                        <li><a href="#">Settings <i class="fas fa-cog"></i> <i class="fas fa-angle-down"></i></a></li>
-                        <li><a href="#">Currency <i class="fas fa-dollar-sign"></i> <i
-                                    class="fas fa-angle-down"></i></a>
+                <div class="col-6 topbar-right">
+                    <ul class="menu">
+                        <li><a href="#"><i class="fas fa-cog"></i> Settings  <i class="fas fa-angle-down"></i></a>
+                            <ul>
+                                <li><a href="#">my<span>profile</span></a></li>
+                                <li><a href="#">Logout</a></li>
+                            </ul>
                         </li>
-                        <li><a href="#">Language <i class="fas fa-language"></i> <i class="fas fa-angle-down"></i></a>
+                        <li><a href="#"><i class="fas fa-money-check"></i> Currency  <i
+                                    class="fas fa-angle-down"></a></i>
+                            <ul>
+                                @foreach($currencies as $currency)
+                                <li><a href="#">{{ $currency->name }}</a></li>
+                                @endforeach
+                            </ul>
                         </li>
-                        <li><a href="#">Login <i class="fas fa-sign-in-alt"></i></a></li>
-                        <li><a href="#">Registration <i class="fas fa-registered"></i></a></li>
+                        <li><a href="#"><i class="fas fa-language"></i> Language  <i class="fas fa-angle-down"></i></a>
+                            <ul>
+                                @foreach($languages as $language)
+                                <li><a href="#">{{ $language->name }}</a></li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li><a href="">Login <i class="fas fa-sign-in-alt"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -141,13 +157,9 @@
                         <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">contact us <i
                                 class="fas fa-angle-down"></i></a>
                     </li>
-
-
                 </ul>
-
             </div>
         </div>
-
     </nav>
     <!--End of NavBar-->
 
@@ -239,7 +251,7 @@
                 @foreach($categories as $category)
                 @foreach($category->products as $product)
                 <div class="hot_deals mix {{ $category->name }}">
-                    
+
                     <div class="hot_deals_image">
 
                         <img src="{{ asset('images/product/thumbnail/'. $product->image) }}" class="img-fluid" alt="">
@@ -533,9 +545,9 @@
         <div class="container">
             <div class="row hot-slick">
                 @foreach($newProducts as $product)
-                <div class="hot_deals" style="height: 40vh">
-                    <div class="" style="height: 100%; overflow: hidden;">
-                        <img src="{{asset('images/product/'.$product->image)}}" class="img-fluid" alt="">
+                <div class="hot_deals">
+                    <div>
+                        <img src="{{asset('images/product/thumbnail/'.$product->image)}}" class="img-fluid" alt="">
                     </div>
                     <div class="search_icon">
                         <a href="" class="search_button"><i class="fas fa-search"></i></a>
@@ -638,6 +650,7 @@
     </div>
     @endif
 
+    <!-- Script -->
     <script src="{{asset('front_template/js/jquery-3.5.1.min.js')}}"></script>
     <script src="{{asset('front_template/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('front_template/js/jquery.nice-select.min.js')}}"></script>

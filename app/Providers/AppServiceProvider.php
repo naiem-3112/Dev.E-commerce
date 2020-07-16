@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Category;
+use App\Currency;
+use App\Language;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,12 +27,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $categories = Category::all();
-        
         view()->share('categories', $categories);
 
-        // $categories = Category::all();
+        $currencies = Currency::all();
+        view()->share('currencies', $currencies);
 
-        // $categories = Category::all();
+        $languages = Language::all();
+        view()->share('languages', $languages);
 
         
     }
