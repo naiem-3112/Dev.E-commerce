@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Session;
 use RealRashid\SweetAlert\Facades\Alert;
 use Image;
+use File;
 
 class ProductController extends Controller
 {
@@ -85,6 +86,10 @@ class ProductController extends Controller
         $product->price = $request->price;
 
         if ($request->hasFile('image')) {
+            $image_path = public_path("images/product/".$product->image);
+            if($image_path) {
+                File::delete($image_path);
+            }
             $originalName = $request->image->getClientOriginalName();
             $uniqueImageName = time().$originalName;
             $image = Image::make($request->image);
@@ -103,11 +108,13 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         if ($product) {
+            $image_path = public_path("images/product/".$product->image);
+            if($image_path) {
+                File::delete($image_path);
+            }
             $product->delete();
 
-            //Session::flash('success', 'product deleted successfully');
             Alert::toast('product deleted successfully', 'success');
-
             return redirect()->route('product.index');
         }
     }
