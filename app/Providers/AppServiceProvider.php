@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $categories = Category::all();
+        $categories = Category::where('status', 1)->orderBy('position_id', 'DESC')->get();
         view()->share('categories', $categories);
 
         $currencies = Currency::all();

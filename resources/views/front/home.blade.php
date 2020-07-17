@@ -251,9 +251,8 @@
             </div>
 
             <div class="row work-bottom">
-                @foreach($categories as $category)
-                @foreach($category->products as $product)
-                <div class="hot_deals mix {{ $category->name }}">
+                @foreach($proCats as $product)
+                <div class="hot_deals mix {{ $product->category->name }}">
 
                     <div class="hot_deals_image">
 
@@ -271,13 +270,14 @@
                         <h1>{{ $product->name }}</h1>
                         <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
                         <i class="far fa-star"></i><i class="far fa-star"></i>
-                        <p class="price"><del><span>{{ $product->price }}</span></del><span>{{ $product->price }}</span><span class="discount"> 5%</span>
+                        <p class="price">
+                            <del><span>{{ $product->price }}</span></del><span>{{ $product->price }}</span><span
+                                class="discount"> 5%</span>
                         </p>
                         <p>Availablity: <span>300 in stock</span></p>
                         <p>Hurry Up Offers Ends in: <span>2h:30h:15s</span></p>
                     </div>
                 </div>
-                @endforeach
                 @endforeach
             </div>
         </div>
@@ -563,8 +563,8 @@
                         <h1>{{ $product->name }}</h1>
                         <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
                         <i class="far fa-star"></i><i class="far fa-star"></i>
-                        <p class="price"><del><span>${{ $product->pricre }}</span></del><span> {{ $product->price }}</span><span
-                                class="discount"> 5%</span></p>
+                        <p class="price"><del><span>${{ $product->pricre }}</span></del><span>
+                                {{ $product->price }}</span><span class="discount"> 5%</span></p>
                         <p>Availablity: <span>300 in stock</span></p>
                         <p>Hurry Up Offers Ends in: <span>2h:30h:15s</span></p>
                     </div>
