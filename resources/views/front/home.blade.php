@@ -7,9 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Dev Ecommerce</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('front_template/images/favicon.png')}}" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800&display=swap"
+        rel="stylesheet" /> --}}
 
     <link rel="stylesheet" href="{{asset('front_template/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('front_template/css/bootstrap.min.css')}}">
@@ -31,13 +32,13 @@
                 </div>
                 <div class="col-6 topbar-right">
                     <ul class="menu">
-                        <li><a href="#"><i class="fas fa-cog"></i> Settings  <i class="fas fa-angle-down"></i></a>
+                        <li><a href="#"><i class="fas fa-cog"></i> Settings <i class="fas fa-angle-down"></i></a>
                             <ul>
                                 <li><a href="#">my<span>profile</span></a></li>
                                 <li><a href="#">Logout</a></li>
                             </ul>
                         </li>
-                        <li><a href="#"><i class="fas fa-money-check"></i> Currency  <i
+                        <li><a href="#"><i class="fas fa-money-check"></i> Currency <i
                                     class="fas fa-angle-down"></a></i>
                             <ul>
                                 @foreach($currencies as $currency)
@@ -45,7 +46,7 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li><a href="#"><i class="fas fa-language"></i> Language  <i class="fas fa-angle-down"></i></a>
+                        <li><a href="#"><i class="fas fa-language"></i> Language <i class="fas fa-angle-down"></i></a>
                             <ul>
                                 @foreach($languages as $language)
                                 <li><a href="#">{{ $language->name }}</a></li>
@@ -64,16 +65,18 @@
     <div class="container-fluid pt-4 pb-4 searchBar">
         <div class="container">
             <div class="row">
-                <div style="width: 100px; overflow: hidden;">
+                <div>
                     <a href="index.html"><img src="{{asset('logo/website/'. $settingGeneral->logo)}}" class="img-fluid"
                             alt="Logo"></a>
                 </div>
                 <div class="col-md-6 col-lg-5 text-center">
                     <form action="#">
-                        <input type="text" class="search_box" placeholder="Search Entire Store Here">
+                        <input type="text" class="search_box" placeholder="Search what you want">
                         <div class="search_category">
-                            <select class="nice-select" name="" id="">
-                                <option>Electronics</option>
+                            <select class="nice-select">
+                                @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <button class="search_btn"><i class="fas fa-search"></i></button>
@@ -171,7 +174,7 @@
                 @foreach($products as $key => $product)
                 <div class="carousel-item {{ $key == 0 ? 'active' : ''}}">
                     <img src="{{asset('images/product/'.$product->image)}}" class="img-fluid d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption">
                         <h2>{{ $product->name }}</h2>
                         <h1>{{ $product->category->name }}</h1>
                         <p>{{ $product->description }}</p>

@@ -77,7 +77,8 @@ class ProductController extends Controller
             'name' => "required|unique:products,name,$product->id",
             'description' => 'required',
             'status' => 'required',
-            'price' => 'required'
+            'price' => 'required',
+            'image' => 'image|sometimes|nullable|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $product->category_id = $request->category_id;
