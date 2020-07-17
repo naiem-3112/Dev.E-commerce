@@ -141,7 +141,7 @@
                         <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">pages <i
                                 class="fas fa-angle-down"></i></a>
 
-                        <ul>
+                        {{-- <ul>
                             <li><a href="#">About Pge</a></li>
                             <li><a href="#">Cart Page</a></li>
                             <li><a href="#">Checkout Page</a></li>
@@ -149,7 +149,7 @@
                             <li><a href="login-register.html">Login & Register Page</a></li>
                             <li><a href="#">Account Page</a></li>
                             <li><a href="#">Wishlist Page</a></li>
-                        </ul>
+                        </ul> --}}
 
                     </li>
                     <li class="nav-item pr-2">
@@ -175,8 +175,8 @@
                 <div class="carousel-item {{ $key == 0 ? 'active' : ''}}">
                     <img src="{{asset('images/product/'.$product->image)}}" class="img-fluid d-block w-100" alt="...">
                     <div class="carousel-caption">
-                        <h2>{{ $product->name }}</h2>
-                        <h1>{{ $product->category->name }}</h1>
+                        <h2>{{ $product->category->name }}</h2>
+                        <h1>{{ $product->name }}</h1>
                         <p>{{ $product->description }}</p>
                         <button type="button" class="btn btn-primary text-uppercase">Shop now</button>
                     </div>
@@ -271,7 +271,7 @@
                         <h1>{{ $product->name }}</h1>
                         <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
                         <i class="far fa-star"></i><i class="far fa-star"></i>
-                        <p class="price"><del><span>$20</span></del><span> 34.21</span><span class="discount"> 5%</span>
+                        <p class="price"><del><span>{{ $product->price }}</span></del><span>{{ $product->price }}</span><span class="discount"> 5%</span>
                         </p>
                         <p>Availablity: <span>300 in stock</span></p>
                         <p>Hurry Up Offers Ends in: <span>2h:30h:15s</span></p>
@@ -563,7 +563,7 @@
                         <h1>{{ $product->name }}</h1>
                         <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
                         <i class="far fa-star"></i><i class="far fa-star"></i>
-                        <p class="price"><del><span>${{ $product->pricre }}</span></del><span> 34.21</span><span
+                        <p class="price"><del><span>${{ $product->pricre }}</span></del><span> {{ $product->price }}</span><span
                                 class="discount"> 5%</span></p>
                         <p>Availablity: <span>300 in stock</span></p>
                         <p>Hurry Up Offers Ends in: <span>2h:30h:15s</span></p>

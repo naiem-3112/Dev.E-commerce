@@ -274,7 +274,7 @@ img {
 
 .carousel-item:before {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.26);
+    background-color: rgba(0, 0, 0, 0.40);
     left: 0;
     top: 0;
     height: 100%;
@@ -282,49 +282,37 @@ img {
     content: "";
 }
 
-
-
 .carousel-control-next,
 .carousel-control-prev {
     z-index: 50
 }
 
 .carousel-caption {
-    text-align: left;
 	position: absolute;
     color: #EDF5E1;
     top: 20%;
-    left: 15%;
+	left: 15%;
     z-index: 10;
 }
 
 .carousel-caption h2 {
 	font-size: 18px;
-	text-align: center;
-    font-weight: 400;
+	font-weight: 400;
+	text-transform: capitalize;
 }
 
 .carousel-caption p {
-	font-weight: 100;
+	font-weight: 300;
 	letter-spacing: 2px;
-	text-align: center;
 }
 
 .carousel-caption h1 {
     display: inline-block;
     font-size: 68px;
-	font-weight: 700;
+	font-weight: 400;
 	text-align: center;
 	letter-spacing: 3px;
     text-transform: uppercase;
-}
-
-.test {
-    color: #05386B;
-    color: #379683;
-    color: #5CDB95;
-    color: #8EE4AF;
-    color: #EDF5E1;
 }
 
 .carousel-caption button {
@@ -340,7 +328,7 @@ img {
     overflow: hidden;
 }
 
-.carousel-caption:hover button{
+.carousel-caption button:hover{
     color: #EDF5E1;
     background: #05386B;
 	
@@ -385,33 +373,43 @@ img {
 }
 
 /*Mixitup*/
+
+.test {
+    color: #05386B;
+    color: #379683;
+    color: #5CDB95;
+    color: #8EE4AF;
+    color: #EDF5E1;
+}
+
 .work-top button {
     display: inline-block;
-    background: #0069D9;
+    background: #EDF5E1;
     box-sizing: border-box;
     padding: 10px 20px;
-    color: #fff;
+    color: #05386B;
     font-weight: 600;
     text-transform: capitalize;
     cursor: pointer;
-    margin-right: 20px;
+    margin-right: 10px;
     transition: 0.5s;
     opacity: 1;
-    border: 1px solid transparent;
-    border-radius: 25px;
+	border: 1px solid transparent;
+	border-radius: 5px;
 }
 
 .work-top .mixitup-control-active {
-    background: #c0392b;
-    color: #fff;
-    border: 1px solid #fff;
+	background: #379683;
+    color: #EDF5E1;
+    border: 1px solid #EDF5E1;
 }
 
-.work-top button:hover {
+.work-top:hover button:hover {
+	border-radius: 0;
     background: #fff;
     color: #2c3e50;
     box-sizing: border-box;
-    border: 1px solid #2c3e50;
+    border-bottom: 1px solid #2c3e50;
 }
 
 .work-top button:focus {
