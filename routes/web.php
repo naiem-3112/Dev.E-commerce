@@ -8,6 +8,8 @@ Auth::routes(['verify' => true]);
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('test', 'TestController@test');
+
 //Admin Routes
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     

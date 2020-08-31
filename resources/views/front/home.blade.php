@@ -9,8 +9,10 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('front_template/images/favicon.png')}}" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
+    {{-- font awesome cdn --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800&display=swap"
-        rel="stylesheet" /> --}}
+    rel="stylesheet" /> --}}
 
     <link rel="stylesheet" href="{{asset('front_template/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('front_template/css/bootstrap.min.css')}}">
@@ -53,7 +55,68 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li><a href="">Login <i class="fas fa-sign-in-alt"></i></a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#exampleModal">Login <i
+                                    class="fas fa-sign-in-alt"></i></a></li>
+
+                        {{-- login modal --}}
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <form action="" method="post">
+                                                    <div class="form-group">
+                                                        <label for="email">Email Address</label>
+                                                        <input type="email" class="form-control" name="email"
+                                                            placeholder="Enter Valid E-mail" value="{{old('email')}}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="password">Password</label>
+                                                        <input type="password" class="form-control" name="password"
+                                                            placeholder="Enter Password">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="checkbox" class="" name="remember"
+                                                            value="remember">
+                                                        <label for="remember">Remember Login</label>
+                                                    </div>
+                                                    <button type="button" class="btn btn-primary">Login</button>
+                                                </form>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <a style="border-right: none" href="#">Forgot password?</a>
+                                                    <i class="fa fa-adjust"></i>
+                                                    <p>New User?</p>
+                                                    <a href="#">Sing Up!</a>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <p>OR</p>
+                                                <button type="button" class="btn btn-primary"><i class="fab fa-facebook-f"></i> Sign in with Facebook</button>
+                                                <button type="button" class="btn btn-primary">Sign in with Google</button>
+                                            </div>
+
+
+                                        </div>
+                                        <div>
+                                            <button style="background: transparent; border: none; color: #5278f7"
+                                                type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- login modal end --}}
                     </ul>
                 </div>
             </div>
@@ -142,14 +205,14 @@
                                 class="fas fa-angle-down"></i></a>
 
                         {{-- <ul>
-                            <li><a href="#">About Pge</a></li>
-                            <li><a href="#">Cart Page</a></li>
-                            <li><a href="#">Checkout Page</a></li>
-                            <li><a href="#">Compare Page</a></li>
-                            <li><a href="login-register.html">Login & Register Page</a></li>
-                            <li><a href="#">Account Page</a></li>
-                            <li><a href="#">Wishlist Page</a></li>
-                        </ul> --}}
+                        <li><a href="#">About Pge</a></li>
+                        <li><a href="#">Cart Page</a></li>
+                        <li><a href="#">Checkout Page</a></li>
+                        <li><a href="#">Compare Page</a></li>
+                        <li><a href="login-register.html">Login & Register Page</a></li>
+                        <li><a href="#">Account Page</a></li>
+                        <li><a href="#">Wishlist Page</a></li>
+                    </ul> --}}
 
                     </li>
                     <li class="nav-item pr-2">
