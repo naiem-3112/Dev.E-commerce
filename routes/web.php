@@ -31,6 +31,7 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 
 //Vendor
     Route::resource('vendor', 'VendorController');
+    Route::post('getVendors', 'VendorController@getVendors')->name('get.vendors');
 
 //Purchase
     Route::resource('purchase', 'PurchaseController');
@@ -68,3 +69,8 @@ Route::resource('language', 'LanguageController');
     Route::resource('setting/general', 'SettingGeneralController');
     Route::resource('setting/social', 'SettingSocialController');
 });
+
+
+// DataTable Test
+Route::get('pro', 'DataproController@index')->name('pro.index');
+Route::post('pro/store', 'DataproController@store')->name('pro.store');

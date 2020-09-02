@@ -32,7 +32,7 @@
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
-                            <table class="table table-striped">
+                            <table id="vendorTable" class="table table-striped">
                                 <tr>
                                     <th>
                                         <div class="custom-checkbox custom-control">

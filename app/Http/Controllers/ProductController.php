@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use App\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Session;
@@ -15,13 +16,16 @@ class ProductController extends Controller
 {
     public function index()
     {
+        $categories = Category::all();
+        $brands = Brand::all();
         $products = Product::orderBy('created_at', 'DESC')->paginate(20);
-        return view('admin.product.index', compact('products'));
+        return view('admin.product.index', compact('products', 'categories', 'brands'));
     }
 
     public function create()
     {
         $categories = Category::all();
+
         return view('admin.product.create', compact('categories'));
     }
 

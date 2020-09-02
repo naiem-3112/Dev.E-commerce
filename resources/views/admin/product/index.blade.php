@@ -9,8 +9,64 @@
         <div class="breadcrumb-item">Product</div>
     </div>
 </div>
+
+<div class="row">
+    <h3>Laravel Dynamic Dependent Filtering Using Ajax</h3>
+</div>
+<hr>
+<div class="row">
+    <div class="col-4">
+        <select class="form-control" name="product" id="product">
+            <option selected disabled>Select Product</option>
+            @foreach($products as $product)
+            <option value="{{ $product->id }}">{{ $product->name }}</option>
+            @endforeach
+        </select>
+    </div>
+
+    <div class="col-4">
+        <select class="form-control procat" name="category" id="category">
+            <option selected disabled>Select Category</option>
+            @foreach($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+        </select>
+    </div>
+
+    <div class="col-4">
+        <select class="form-control" name="brand" id="brand">
+            <option selected disabled>Select Brand</option>
+            @foreach($brands as $brand)
+            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
+<hr>
+<hr>
+
+{{--  Test Card Section --}}
+<div class="row">
+    @foreach($products as $product)
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header" style="background: chocolate; color: #fff; font-size: 20px">
+                {{ $product->name }}
+            </div>
+            <div class="card-body" style="height:14rem; text-align:center">
+                <p>{{ $product->description }}</p>
+                <small style="color: chocolate; font-weight:bold; font-size:60px">{{ $product->price }}</small>
+
+                <h4 style="text-transform: capitalize">{{ $product->category->name }} <span>Category</span></h4>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
+<hr>
+<hr>
 <!-- /.content-header -->
-<div class="content">
+{{--  <div class="content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -35,7 +91,7 @@
                             <table class="table table-striped">
                                 <tr>
                                     <th>
-                                        <div class="custom-checkbox custom-control" >
+                                        <div class="custom-checkbox custom-control">
                                             <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad"
                                                 class="custom-control-input" id="checkbox-all">
                                             <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
@@ -105,5 +161,19 @@
             </div>
         </div>
     </div>
-</div>
+</div>  --}}
+
+
 @endsection
+
+<script>
+    $(document).ready(function(){
+        let a ="string";
+        alert(a);
+        $(document).on('change','.procat',function(){
+            var cat_id = $(this).val();
+            alert(cat_id);
+
+        });
+    });
+</script>
